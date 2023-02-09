@@ -1,0 +1,15 @@
+.App header {
+  background-color: #cab160bd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+img {
+  height: 10rem;
+  transition: transform 1s;
+}
+img:hover {
+  transform: rotate(360deg);
+}
