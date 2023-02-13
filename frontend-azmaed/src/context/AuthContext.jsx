@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import { logInUserService } from "../services/index";
 import useLocalStorage from "../hooks/useLocalStorage";
-
-import { getMyDataService } from "../services";
 
 export const AuthContext = createContext(null);
 
@@ -12,7 +11,7 @@ export const AuthContextProviderComponent = ({ children }) => {
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const data = await getMyDataService(token);
+        const data = await logInUserService(token);
 
         console.log("data de authcontext", data);
 

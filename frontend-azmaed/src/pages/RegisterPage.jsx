@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import { Loading } from "../components/Loading";
 import { registerUserService } from "../services";
 // hay que añadir el nombre y el surname
@@ -27,6 +28,7 @@ export const RegisterPage = () => {
     try {
       await registerUserService({ email, password: pass1, name, surname });
       navigate("/login");
+      toast.success("¡Te has registrado correctamente");
     } catch (error) {
       setError(error.message);
     }
