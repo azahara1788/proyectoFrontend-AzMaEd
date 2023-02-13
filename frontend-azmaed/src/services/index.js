@@ -52,6 +52,22 @@ export const logInUserService = async ({ email, password }) => {
   return json.data;
 };
 
+export const getMyDataService = async ({ token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/user`, {
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  console.log(json.data);
+  return json.data;
+};
+
 export const getAllNotesService = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`);
 
