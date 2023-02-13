@@ -1,9 +1,14 @@
-.App header {
+header {
   background-color: #cab160bd;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  background: linear-gradient(
+    to right,
+    var(--color-principal),
+    rgb(95, 95, 99)
+  );
 }
 
 img {
@@ -12,4 +17,8 @@ img {
 }
 img:hover {
   transform: rotate(360deg);
+}
+
+header nav {
+  list-style: none;
 }

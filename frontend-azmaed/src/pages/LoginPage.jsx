@@ -12,14 +12,13 @@ export const LoginPage = () => {
 
   const handleForm = async (e) => {
     e.preventDefault();
-
     try {
       const token = await logInUserService({ email, password });
 
       login(token);
-      navigate("/");
+      navigate("/note");
     } catch (error) {
-      setError(error.message);
+      setError("Email o password incorrecto", error.message);
     }
   };
   return (
