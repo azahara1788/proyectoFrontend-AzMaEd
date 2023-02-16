@@ -1,29 +1,26 @@
 import { useEffect, useState } from "react";
-import { logInUserService } from "../services";
+import { getSingleNoteService } from "../services";
 
-const useUser = (id) => {
-  const [user, setUser] = useState([]);
+export const useNote = (id) => {
+  const [note, setNote] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const loadUser = async () => {
+    const loadNote = async () => {
       try {
         setLoading(true);
-        const data = await logInUserService(id);
+        const data = await getSingleNoteService(id);
 
-        setUser(data);
+        setNote(data);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
-
-    loadUser();
+    loadNote();
   }, [id]);
 
-  return { user, error, loading };
+  return { note, error, loading };
 };
-
-export default useUser;

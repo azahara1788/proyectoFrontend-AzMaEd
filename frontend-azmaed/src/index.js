@@ -10,14 +10,14 @@ import ErrorBoundary from "./ErrorBoundary";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <AuthContextProviderComponent>
-        <BrowserRouter>
-          <ErrorBoundary>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <AuthContextProviderComponent>
+          <BrowserRouter>
             <App />
-          </ErrorBoundary>
-        </BrowserRouter>
-      </AuthContextProviderComponent>
-    </ThemeProvider>
+          </BrowserRouter>
+        </AuthContextProviderComponent>
+      </ThemeProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );

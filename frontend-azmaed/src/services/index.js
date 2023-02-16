@@ -34,11 +34,12 @@ export const saveNoteService = async ({ data, token }) => {
   return json.data;
 };
 
-export const logInUserService = async ({ email, password }) => {
+export const logInUserService = async ({ email, password, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {
+      Authorization: token,
       "Content-Type": "application/json",
     },
   });
@@ -49,7 +50,7 @@ export const logInUserService = async ({ email, password }) => {
     throw new Error(json.message);
   }
 
-  return json.data;
+  return json.data.token;
 };
 
 export const getMyDataService = async ({ token }) => {
@@ -64,12 +65,16 @@ export const getMyDataService = async ({ token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-  console.log(json.data);
+
   return json.data;
 };
 
-export const getAllNotesService = async () => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`);
+export const getAllNotesService = async ({ token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`, {
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const json = await response.json();
 
@@ -80,8 +85,12 @@ export const getAllNotesService = async () => {
   return json.data;
 };
 
-export const getSingleNoteService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`);
+export const getSingleNoteService = async ({ id, token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const json = await response.json();
 
@@ -89,11 +98,16 @@ export const getSingleNoteService = async (id) => {
     throw new Error(json.message);
   }
 
-  return json.data;
+  return json[0];
 };
-export const getPublicNoteService = async (id) => {
+export const getPublicNoteService = async ({ id, token }) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/notes/public/${id}`
+    `${process.env.REACT_APP_BACKEND}/notes/public/${id}`,
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
   );
 
   const json = await response.json();
@@ -193,8 +207,12 @@ export const privateNoteService = async ({ id, token, data }) => {
   }
 };
 
-export const getCategoryService = async () => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/category`);
+export const getCategoryService = async ({ token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/category`, {
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const json = await response.json();
 

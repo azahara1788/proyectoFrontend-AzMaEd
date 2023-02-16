@@ -1,0 +1,16 @@
+#loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(221, 221, 221, 0.615);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading img {
+  width: 5rem;
+}
