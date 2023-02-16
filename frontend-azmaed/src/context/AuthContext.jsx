@@ -13,6 +13,8 @@ export const AuthContextProviderComponent = ({ children }) => {
       try {
         const data = await logInUserService(token);
 
+        console.log("data de authcontext", data);
+
         setUser(data);
       } catch (error) {
         setToken("");
