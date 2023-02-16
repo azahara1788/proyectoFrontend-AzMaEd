@@ -1,0 +1,33 @@
+main .categoryPage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.linkAnadirNota {
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  gap: 2rem;
+  border: 1px solid var(--colorSecundario);
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background: var(--background);
+  text-transform: capitalize;
+}
+.linkAnadirNota a:link,
+.linkAnadirNota a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.linkAnadirNota a:hober {
+  color: var(--colorPrincipal);
+}
