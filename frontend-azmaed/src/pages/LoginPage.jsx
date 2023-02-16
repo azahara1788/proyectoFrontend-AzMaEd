@@ -22,7 +22,7 @@ export const LoginPage = () => {
     }
   };
   return (
-    <section>
+    <main>
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -51,6 +51,6 @@ export const LoginPage = () => {
         <button>Login</button>
         {error ? <p>{error}</p> : null}
       </form>
-    </section>
+    </main>
   );
 };

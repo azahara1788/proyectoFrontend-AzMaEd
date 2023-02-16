@@ -1,0 +1,51 @@
+ul {
+  list-style: none;
+}
+.list-notes a:link,
+.list-notes a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.list-notes a:hover {
+  color: var(--colorPrincipal);
+}
+
+.list-categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem;
+}
+.list-categories li {
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  gap: 2rem;
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--background);
+  text-transform: capitalize;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+}
+.list-categories a:link,
+.list-categories a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.list-categories a:hover {
+  color: var(--colorPrincipal);
+}
+
+ul .list-notes {
+  display: block;
+  height: 5rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
