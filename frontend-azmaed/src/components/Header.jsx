@@ -10,7 +10,7 @@ export const Header = () => {
       </Link>
       <h1> notes for me </h1>
       <nav>
-        <Auth />
+       {/*  <Auth /> */}
       </nav>
     </header>
   );

@@ -1,0 +1,14 @@
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  footer{
+    margin-bottom: 1rem;
+    text-align: right;
+    font-style: Caveat;
+    font-size: 20px; 
+    color: rgba(245, 245, 245, 0.893);
+    background-color: #495969ff;
+  }

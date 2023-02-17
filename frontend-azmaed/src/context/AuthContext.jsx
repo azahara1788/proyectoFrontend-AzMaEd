@@ -1,12 +1,10 @@
 import { createContext, useEffect, useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
-
 import { getMyDataService } from "../services";
 
 export const AuthContext = createContext(null);
 
 export const AuthContextProviderComponent = ({ children }) => {
-  const [token, setToken] = useLocalStorage("token", "");
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -18,28 +16,29 @@ export const AuthContextProviderComponent = ({ children }) => {
 
         setUser(data);
       } catch (error) {
-        setToken("");
+        setToken("null");
         setUser(null);
       }
     };
 
     if (token) getUserData();
-  }, [token, setToken]);
+  }, [token]);
 
   const logout = () => {
-    setToken("");
-    setUser();
+    setToken("null");
+    setUser(null);
+    localStorage.removeItem("token");
   };
 
-  const login = (token) => {
+  const login = (newToken) => {
     setToken(token);
+    localStorage.setItem("token",newToken);
   };
 
-  const isUser = () => token && token.token !== "";
 
   return (
-    <AuthContext.Provider value={{ token, user, login, logout, isUser }}>
+    <AuthContext.Provider value={{ token, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
-};
+}; 

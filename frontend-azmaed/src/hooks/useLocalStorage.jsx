@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+ import {useState, useEffect} from "react";
 
 const useLocalStorage = (varName, outInitVal)=> {
     const [value, setValue] = useState(
@@ -14,3 +14,4 @@ const useLocalStorage = (varName, outInitVal)=> {
     return[ value, setValue];
     };
 export default useLocalStorage;
+ 

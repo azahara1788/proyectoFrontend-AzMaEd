@@ -15,8 +15,8 @@ export const LoginPage = () => {
     try {
       const token = await logInUserService({ email, password });
 
-      login(token);
-      navigate("/note");
+     login(token);
+     navigate("/note"); 
     } catch (error) {
       setError("Email o password incorrecto", error.message);
     }

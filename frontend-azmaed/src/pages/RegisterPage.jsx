@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Loading } from "../components/Loading";
+/* import { Loading } from "../components/Loading"; */
 import { registerUserService } from "../services";
 // hay que añadir el nombre y el surname
 export const RegisterPage = () => {
@@ -13,10 +13,10 @@ export const RegisterPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
-  const [loader, setLoader] = useState(false);
+  /* const [loader, setLoader] = useState(false); */
 
   const handleForm = async (e) => {
-    setLoader(true);
+    /* setLoader(true); */
     e.preventDefault();
     setError("");
 
@@ -32,14 +32,14 @@ export const RegisterPage = () => {
     }
     let form = e.target;
     form.reset();
-    setLoader(false);
+   /*  setLoader(false); */
   };
 
   return (
     <section>
       <h1>Register</h1>
       <form id="register" onSubmit={handleForm}>
-        {loader && <Loading />}
+        {/* {loader && <Loading />} */}
         <fieldset>
           <label htmlFor="name">Name</label>
           <input

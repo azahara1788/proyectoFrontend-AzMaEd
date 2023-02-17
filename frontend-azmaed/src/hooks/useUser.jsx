@@ -12,6 +12,7 @@ const useUser = (id) => {
         setLoading(true);
         const data = await getUserDataService(id);
 
+
         setUser(data);
       } catch (error) {
         setError(error.message);
@@ -26,4 +27,5 @@ const useUser = (id) => {
   return { user, error, loading };
 };
 
-export default useUser;
+export default useUser; 
+
