@@ -1,1 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  --background: rgb(255, 254, 254);
+  --primary: #596676ff;
+  --button: linear-gradient(0deg, #be3455 0%, #b96478 100%);
+  --shadow: 0 0 3px var(--primary);
+}
+body {
+  min-height: 100vh;
+}

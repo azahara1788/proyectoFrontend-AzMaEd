@@ -1,0 +1,30 @@
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+article p {
+  padding-bottom: 1rem;
+}
+
+.noteimage img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  box-shadow: 2px 2px 2px 2px var(--colorSecundario);
+  padding: 1rem;
+}
+article section {
+  padding: 1rem;
+}
+
+article button {
+  background: var(--colorPrincipal);
+  padding: 0.2rem;
+  border-style: none;
+  box-shadow: 1px 1px 1px 1px var(--colorSecundario);
+  border-radius: 5%;
+  color: white;
+}

@@ -1,15 +1,21 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-//import { useEffect } from "react";
+import "./NotePage.css";
+
 import useNote from "../hooks/useNote";
-import { deleteNoteService } from "../services";
+import { addImageService, deleteNoteService } from "../services";
 
 export const NotePage = () => {
   const { id } = useParams();
-  const { note } = useNote(id);
+  const { note, error, setError } = useNote(id);
   const { user, token } = useContext(AuthContext);
-  const [error, setError] = useState("");
+  const { image } = useState();
+
+  const handleForm = async (e) => {
+    e.preventeDefault();
+  };
+
   const deleteNote = async (id) => {
     try {
       await deleteNoteService({ id, token });
@@ -17,18 +23,39 @@ export const NotePage = () => {
       setError(error.message);
     }
   };
+  const upImage = async () => {
+    try {
+      await addImageService({ id, token, image });
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   return note ? (
-    <article className="note">
+    <article className="onenote">
       <h3>{note.title}</h3>
       <p>{note.text}</p>
       {note.nameFile ? (
-        <img
-          src={`${process.env.REACT_APP_BACKEND}/${note.nameFile}`}
-          alt={note.title}
-        />
-      ) : null}
-      {user ? (
+        <figure className="noteimage">
+          <img
+            src={`${process.env.REACT_APP_BACKEND}/${note.nameFile}`}
+            alt={note.title}
+          />
+        </figure>
+      ) : (
+        <form onSubmit={handleForm}>
+          <input type="file" id="image" name="nameFile" accept="image" />
+
+          <button
+            onClick={() => {
+              upImage(note.id, image);
+            }}
+          >
+            Añdir Imagen
+          </button>
+        </form>
+      )}
+      {user && note.nameFile ? (
         <section>
           <button
             onClick={() => {
