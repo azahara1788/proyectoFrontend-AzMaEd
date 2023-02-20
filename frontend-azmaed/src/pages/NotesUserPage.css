@@ -15,8 +15,3 @@ section .note h3 {
 section .categorias {
   padding: 1rem;
 }
-
-h3 {
-  font-size: 1.75rem;
-  padding-bottom: 0.5rem;
-}

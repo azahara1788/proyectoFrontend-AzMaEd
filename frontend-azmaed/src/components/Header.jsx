@@ -11,9 +11,9 @@ export const Header = () => {
         <img src="/logosinfondo.png" alt="logo Notes for me" />
       </Link>
       <h1> NotesForMe </h1>
+      <Theme />
 
       <nav>
-        <Theme />
         <Auth />
       </nav>
     </header>

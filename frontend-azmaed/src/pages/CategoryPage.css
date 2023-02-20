@@ -13,7 +13,7 @@ main .categoryPage {
   height: 8rem;
   overflow: hidden;
   gap: 2rem;
-  border: 1px solid var(--colorSecundario);
+  border: 1px solid var(--colorPrincipal);
   border-radius: 5%;
   display: flex;
   justify-content: center;
@@ -21,6 +21,7 @@ main .categoryPage {
   align-self: center;
   background: var(--background);
   text-transform: capitalize;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
 }
 .linkAnadirNota a:link,
 .linkAnadirNota a:visited {
@@ -28,6 +29,6 @@ main .categoryPage {
   color: white;
   font-weight: bold;
 }
-.linkAnadirNota a:hober {
+.linkAnadirNota a:hover {
   color: var(--colorPrincipal);
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import Theme from "./components/Theme";
+
 import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -21,6 +21,7 @@ import { NoteAllPage } from "./pages/NoteAllPage";
 function App() {
   const { theme } = useThemeContext();
   const location = useLocation();
+
   return (
     <>
       <Header />
@@ -43,7 +44,7 @@ function App() {
               path="/notes"
               element={
                 <PrivateRoute>
-                  <NotesAllPage />
+                  <NoteAllPage />
                 </PrivateRoute>
               }
             />
@@ -91,7 +92,7 @@ function App() {
           </Routes>
         </ErrorBoundary>
       </main>
-      <Footer />
+      {/*  <Footer /> */}
       <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
     </>
   );

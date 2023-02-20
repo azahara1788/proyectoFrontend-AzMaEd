@@ -129,12 +129,12 @@ export const editNoteService = async ({ id, token, data }) => {
   }
 };
 /* response.blob */
-export const addImageService = async ({ id, token, data }) => {
+export const addImageService = async ({ id, token, image }) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/notes/${id}/images`,
     {
       method: "POST",
-      body: data,
+      body: image,
       headers: {
         Authorization: token,
       },
