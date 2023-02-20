@@ -34,12 +34,11 @@ export const saveNoteService = async ({ data, token }) => {
   return json.data;
 };
 
-export const logInUserService = async ({ email, password, token }) => {
+export const logInUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
     headers: {
-      Authorization: token,
       "Content-Type": "application/json",
     },
   });
@@ -100,14 +99,9 @@ export const getSingleNoteService = async ({ id, token }) => {
 
   return json[0];
 };
-export const getPublicNoteService = async ({ id, token }) => {
+export const getPublicNoteService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/notes/public/${id}`,
-    {
-      headers: {
-        Authorization: token,
-      },
-    }
+    `${process.env.REACT_APP_BACKEND}/notes/public/${id}`
   );
 
   const json = await response.json();

@@ -6,14 +6,16 @@
 
 #dark {
   background: #46045e;
+  color: #fff;
+  transition: 0.3s ease all;
 }
 
-#light .main {
+/* #light .main {
   background: #f3ebf6;
 }
 #dark .main {
   background: #46045e;
-}
+} */
 
 .switch {
   display: flex;
@@ -23,9 +25,17 @@
   align-items: center;
 }
 
-#light .label {
+/* #light .label {
   color: #000000;
 }
 #dark .label {
   color: #ffffff;
+} */
+
+#dark section {
+  background: #842aa4;
+}
+#dark section label,
+#dark section input {
+  background: #fff;
 }
