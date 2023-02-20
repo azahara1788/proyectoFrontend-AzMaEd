@@ -12,11 +12,11 @@ root.render(
   <React.StrictMode>
     <ErrorBoundary>
       <ThemeProvider>
-        <AuthContextProviderComponent>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </AuthContextProviderComponent>
+        {/*  <AuthContextProviderComponent> */}
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+        {/* </AuthContextProviderComponent> */}
       </ThemeProvider>
     </ErrorBoundary>
   </React.StrictMode>

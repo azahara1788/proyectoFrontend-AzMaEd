@@ -5,9 +5,10 @@
   color: #fff;
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
-  /* min-height: 100vh; */
-  max-height: 100vh;
+  min-height: 100vh;
+  min-width: 250px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
