@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Loading } from "../components/Loading";
+import { toast } from "react-toastify";
+import "./RegisterPage.css";
 import { registerUserService } from "../services";
-// hay que añadir el nombre y el surname
+
 export const RegisterPage = () => {
   const navigate = useNavigate();
 
@@ -13,10 +14,7 @@ export const RegisterPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
-  const [loader, setLoader] = useState(false);
-
   const handleForm = async (e) => {
-    setLoader(true);
     e.preventDefault();
     setError("");
 
@@ -27,21 +25,20 @@ export const RegisterPage = () => {
     try {
       await registerUserService({ email, password: pass1, name, surname });
       navigate("/login");
+      toast.success("¡Te has registrado correctamente");
     } catch (error) {
       setError(error.message);
     }
     let form = e.target;
     form.reset();
-    setLoader(false);
   };
 
   return (
-    <section>
-      <h1>Register</h1>
-      <form id="register" onSubmit={handleForm}>
-        {loader && <Loading />}
-        <fieldset>
-          <label htmlFor="name">Name</label>
+    <section className="section_register">
+      <h1 className="h1_register">Registro</h1>
+      <form id="form_register" onSubmit={handleForm}>
+        <fieldset className="form_caja">
+          <label htmlFor="name">Nombre</label>
           <input
             type="text"
             id="name"
@@ -51,8 +48,8 @@ export const RegisterPage = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="surname">Surname</label>
+        <fieldset className="form_caja">
+          <label htmlFor="surname">Apellidos</label>
           <input
             type="text"
             id="surname"
@@ -62,7 +59,7 @@ export const RegisterPage = () => {
             onChange={(e) => setSurname(e.target.value)}
           />
         </fieldset>
-        <fieldset>
+        <fieldset className="form_caja">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -73,8 +70,8 @@ export const RegisterPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="pass1">Password</label>
+        <fieldset className="form_caja">
+          <label htmlFor="pass1">Contraseña</label>
           <input
             type="password"
             id="pass1"
@@ -84,8 +81,8 @@ export const RegisterPage = () => {
             onChange={(e) => setPass1(e.target.value)}
           />
         </fieldset>
-        <fieldset>
-          <label htmlFor="pass2">Repeat password</label>
+        <fieldset className="form_caja">
+          <label htmlFor="pass2">Repita contraseña</label>
           <input
             type="password"
             id="pass2"
@@ -95,7 +92,7 @@ export const RegisterPage = () => {
             onChange={(e) => setPass2(e.target.value)}
           />
         </fieldset>
-        <button>Register</button>
+        <button className="register_button">Registrarse</button>
         {error ? <p>{error}</p> : null}
       </form>
     </section>
