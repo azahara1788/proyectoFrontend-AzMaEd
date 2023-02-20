@@ -1,0 +1,22 @@
+.notes {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+  }
+  section .note {
+    padding: 1rem;
+  }
+  
+  section .note h3 {
+    position: sticky;
+    top: 0;
+  }
+  
+  section .categorias {
+    padding: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    padding-bottom: 0.5rem;
+  }

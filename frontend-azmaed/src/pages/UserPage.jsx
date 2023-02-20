@@ -4,7 +4,7 @@
 export const UserPage = () => {
   return (
     <section>
-      <h1>User Page</h1>
+      <h1>User Page x admin</h1>
     </section>
   );
 };
