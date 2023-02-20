@@ -1,43 +1,41 @@
 import { createContext, useEffect, useState } from "react";
-import { logInUserService } from "../services/index";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { getMyDataService } from "../services/index";
 
 export const AuthContext = createContext(null);
 
 export const AuthContextProviderComponent = ({ children }) => {
-  const [token, setToken] = useLocalStorage("token", "");
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const data = await logInUserService(token);
-
-        console.log("data de authcontext", data);
+        const data = await getMyDataService({ token });
 
         setUser(data);
       } catch (error) {
-        setToken("");
+        setToken(null);
         setUser(null);
+        console.error(error);
       }
     };
 
     if (token) getUserData();
-  }, [token, setToken]);
+  }, [token]);
 
   const logout = () => {
-    setToken("");
-    setUser();
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem("token");
   };
 
-  const login = (token) => {
-    setToken(token);
+  const login = (newToken) => {
+    setToken(newToken);
+    localStorage.setItem("token", newToken);
   };
-
-  const isUser = () => token && token.token !== "";
 
   return (
-    <AuthContext.Provider value={{ token, user, login, logout, isUser }}>
+    <AuthContext.Provider value={{ token, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

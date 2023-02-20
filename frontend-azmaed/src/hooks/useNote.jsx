@@ -1,26 +1,33 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { getSingleNoteService } from "../services";
 
-export const useNote = (id) => {
+const useNote = (id) => {
   const [note, setNote] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loadingNote, setLoadingNote] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
-    const loadNote = async () => {
+    const getNote = async () => {
       try {
-        setLoading(true);
-        const data = await getSingleNoteService(id);
+        setLoadingNote(true);
+        const data = await getSingleNoteService({ id, token });
+
+        console.log("data de useNote", data);
 
         setNote(data);
       } catch (error) {
-        setError(error.message);
+        setError("Error en useNote", error.message);
       } finally {
-        setLoading(false);
+        setLoadingNote(false);
       }
     };
-    loadNote();
-  }, [id]);
 
-  return { note, error, loading };
+    getNote();
+  }, [token, id]);
+
+  return { note, setNote, error, setError, loadingNote };
 };
+
+export default useNote;
