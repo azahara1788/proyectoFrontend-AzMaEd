@@ -14,10 +14,7 @@ export const RegisterPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
-  //const [loader, setLoader] = useState(false);
-
   const handleForm = async (e) => {
-    //setLoader(true);
     e.preventDefault();
     setError("");
 
@@ -34,14 +31,12 @@ export const RegisterPage = () => {
     }
     let form = e.target;
     form.reset();
-    //setLoader(false);
   };
 
   return (
     <section className="section_register">
       <h1 className="h1_register">Registro</h1>
       <form id="form_register" onSubmit={handleForm}>
-        {/*  {loader && <Loading />} */}
         <fieldset className="form_caja">
           <label htmlFor="name">Nombre</label>
           <input

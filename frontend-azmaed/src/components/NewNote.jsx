@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import "./NewNote.css";
 
 export const NewNote = () => {
-  /* const [error, setError] = useState("");
+  const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
   const [image, setImage] = useState(null);
 
@@ -26,7 +26,7 @@ export const NewNote = () => {
     } finally {
       setSaving(false);
     }
-  }; */
+  };
   return (
     <section className="section_note">
       <h1 className="h1_note">Añade una nueva nota</h1>
@@ -36,8 +36,8 @@ export const NewNote = () => {
           <input type="text" id="title" name="title" required />
         </fieldset>
         <fieldset className="form_caja_note">
-          {/* <label htmlFor="text">Nota</label>
-          <input type="text" id="text" name="text" required /> */}
+          <label htmlFor="text">Nota</label>
+          <input type="text" id="text" name="text" required />
           <textarea
             name="Nota"
             className="form-control"
@@ -55,21 +55,21 @@ export const NewNote = () => {
             id="image"
             name="image"
             accept="image/*"
-            /* onChange={(e) => setImage(e.target.files[0])} */
+            onChange={(e) => setImage(e.target.files[0])}
           />
-          {/* {image ? (
-          <figure>
-            <img
-              src={URL.createObjectURL(image)}
-              style={{ width: "100px" }}
-              alt="Preview"
-            />
-          </figure>
-        ) : null} */}
+          {image ? (
+            <figure>
+              <img
+                src={URL.createObjectURL(image)}
+                style={{ width: "100px" }}
+                alt="Preview"
+              />
+            </figure>
+          ) : null}
         </fieldset>
         <button className="note_button">Guardar Nota</button>
-        {/* {saving ? <p>Saving Note</p> : null}
-      {error ? <p>{error}</p> : null} */}
+        {saving ? <p>Saving Note</p> : null}
+        {error ? <p>{error}</p> : null}
       </form>
     </section>
   );
