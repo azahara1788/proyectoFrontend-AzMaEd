@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Indie+Flower&family=Montserrat:ital,wght@0,300;0,700;1,400&display=swap");
 * {
   margin: 0;
@@ -87,26 +86,3 @@ h2 {
 h3 {
   color: var(--colorSecundario);
 }
-=======
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  #root {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  main {
-    padding: 2rem;
-    flex-grow: 1;
-  }
-  
-  main.dark {
-    color: white;
-    background-color: black;
-  }
->>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
