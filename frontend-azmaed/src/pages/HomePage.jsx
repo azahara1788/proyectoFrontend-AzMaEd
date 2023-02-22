@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -50,3 +51,8 @@ export const HomePage = () => {
     </main>
   );
 };
+=======
+
+
+
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e

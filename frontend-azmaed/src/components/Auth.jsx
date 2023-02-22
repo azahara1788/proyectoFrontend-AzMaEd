@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import "../App.css";
 
 export const Auth = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext); 
 
   return user ? (
     <section>
@@ -16,9 +16,10 @@ export const Auth = () => {
       <li>
         <Link to={"/register"}>Registrarse</Link>
       </li>
-      <li>
+      <li id="log">
         <Link to={"/login"}>Iniciar Sesión</Link>
       </li>
     </ul>
   );
-};
+};  
+

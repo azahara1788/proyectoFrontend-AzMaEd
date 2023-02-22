@@ -1,6 +1,5 @@
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -17,6 +16,7 @@ import { NotePage } from "./pages/NotePage";
 import { UserRoute } from "./components/UserRoute";
 import { CategoryPage } from "./pages/CategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
+import { Footer } from "./components/Footer";
 
 function App() {
   const { theme } = useThemeContext();
@@ -99,3 +99,6 @@ function App() {
 }
 
 export default App;
+
+
+
