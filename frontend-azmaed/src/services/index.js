@@ -72,8 +72,14 @@ export const getAllNotesService = async ({ token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`, {
     headers: {
       Authorization: token,
+<<<<<<< HEAD
     },
   });
+=======
+    }
+  });
+
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
 
   const json = await response.json();
 
@@ -84,12 +90,20 @@ export const getAllNotesService = async ({ token }) => {
   return json.data;
 };
 
+<<<<<<< HEAD
 export const getSingleNoteService = async ({ id, token }) => {
+=======
+export const getSingleNoteService = async ({id, token}) => {
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
     headers: {
       Authorization: token,
     },
+<<<<<<< HEAD
   });
+=======
+});
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
 
   const json = await response.json();
 
@@ -201,12 +215,20 @@ export const privateNoteService = async ({ id, token, data }) => {
   }
 };
 
+<<<<<<< HEAD
 export const getCategoryService = async ({ token }) => {
+=======
+export const getCategoryService = async ({token}) => {
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/category`, {
     headers: {
       Authorization: token,
     },
+<<<<<<< HEAD
   });
+=======
+   });
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
 
   const json = await response.json();
 

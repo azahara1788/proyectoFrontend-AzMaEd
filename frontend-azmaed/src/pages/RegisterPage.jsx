@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+<<<<<<< HEAD
 import { toast } from "react-toastify";
 import "./RegisterPage.css";
+=======
+/* import { Loading } from "../components/Loading"; */
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
 import { registerUserService } from "../services";
 
 export const RegisterPage = () => {
@@ -14,7 +18,14 @@ export const RegisterPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
 
+<<<<<<< HEAD
   const handleForm = async (e) => {
+=======
+  /* const [loader, setLoader] = useState(false); */
+
+  const handleForm = async (e) => {
+    /* setLoader(true); */
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
     e.preventDefault();
     setError("");
 
@@ -31,6 +42,7 @@ export const RegisterPage = () => {
     }
     let form = e.target;
     form.reset();
+<<<<<<< HEAD
   };
 
   return (
@@ -39,6 +51,18 @@ export const RegisterPage = () => {
       <form id="form_register" onSubmit={handleForm}>
         <fieldset className="form_caja">
           <label htmlFor="name">Nombre</label>
+=======
+   /*  setLoader(false); */
+  };
+
+  return (
+    <section>
+      <h1>Register</h1>
+      <form id="register" onSubmit={handleForm}>
+        {/* {loader && <Loading />} */}
+        <fieldset>
+          <label htmlFor="name">Name</label>
+>>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
           <input
             type="text"
             id="name"

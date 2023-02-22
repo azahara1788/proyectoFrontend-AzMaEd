@@ -14,7 +14,7 @@ export const Header = () => {
       <Theme />
 
       <nav>
-        <Auth />
+       {/*  <Auth /> */}
       </nav>
     </header>
   );
