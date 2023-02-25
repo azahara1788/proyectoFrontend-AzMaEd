@@ -4,13 +4,6 @@
   transition: 0.3s ease all;
 } */
 
-/* #light .main {
-  background: #f3ebf6;
-}
-#dark .main {
-  background: #46045e;
-} */
-
 .switch {
   display: flex;
   width: 100vw;
@@ -19,13 +12,6 @@
   align-items: center;
 }
 
-/* #light .label {
-  color: #000000;
-}
-#dark .label {
-  color: #ffffff;
-} */
-/* 
 #dark section {
   background: #842aa4;
 }
@@ -39,4 +25,3 @@
   font-size: 1.2rem;
   border: none;
 }
- */
