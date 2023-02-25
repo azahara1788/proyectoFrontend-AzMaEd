@@ -68,6 +68,22 @@ export const getMyDataService = async ({ token }) => {
   return json.data;
 };
 
+export const editUserService = async ({ id, token, data }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
+    method: "PUT",
+    body: data,
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
+
 export const getAllNotesService = async ({ token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`, {
     headers: {
@@ -129,9 +145,9 @@ export const editNoteService = async ({ id, token, data }) => {
   }
 };
 /* response.blob */
-export const addImageService = async ({ id, token, image }) => {
+export const addImageService = async (id, { token, image }) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/notes/${id}/images`,
+    `${process.env.REACT_APP_BACKEND}/images/notes/${id}`,
     {
       method: "POST",
       body: image,
@@ -148,9 +164,10 @@ export const addImageService = async ({ id, token, image }) => {
   }
 };
 
-export const deleteImageService = async ({ id, token, imageID }) => {
+export const deleteImageService = async ({ id, token }) => {
+  console.log(id, token);
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/notes/${id}/images/${imageID}`,
+    `${process.env.REACT_APP_BACKEND}/images/notes/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -166,7 +183,7 @@ export const deleteImageService = async ({ id, token, imageID }) => {
   }
 };
 
-export const deleteNoteService = async ({ id, token }) => {
+export const deleteNoteService = async (id, { token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
     method: "DELETE",
     headers: {
@@ -179,10 +196,12 @@ export const deleteNoteService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
+  console.log(json);
+  return json.status;
 };
 
 /* private es una palabra reservada */
-export const privateNoteService = async ({ id, token, data }) => {
+export const privateNoteService = async (id, { token }, data) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/notes/public/${id}`,
     {
@@ -199,6 +218,8 @@ export const privateNoteService = async ({ id, token, data }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
+
+  return json.data;
 };
 
 export const getCategoryService = async ({ token }) => {
@@ -254,7 +275,7 @@ export const editCategoryService = async ({ id, token, data }) => {
   }
 };
 
-export const deleteCategoryService = async ({ id, token }) => {
+export const deleteCategoryService = async (id, token) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/category/${id}`,
     {

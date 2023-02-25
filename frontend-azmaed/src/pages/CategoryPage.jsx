@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ListNotesByCategory } from "../components/ListNotesByCategory";
@@ -28,24 +27,3 @@ export const CategoryPage = () => {
     </section>
   );
 };
-=======
-import { useParams } from "react-router"
-import { getAllNotesService } from "../services"  
-import {Loading} from "../components/Loading"
-import {ErrorMessage} from "../components/ErrorMessage"
-
-export default function CategoryPage (){
-const {category_id} = useParams();
- const {notes, error, loading} = useNotes(category_id); 
-        
-        if(loading) return <Loading/>
-        if(error) return <ErrorMessage/>
-return (
-   <section>
-    <h2>titulo de categoria</h2>
-    <ListNotes/>
-   </section>
-)
-}  
-
->>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e

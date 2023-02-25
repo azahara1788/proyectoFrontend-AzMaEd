@@ -1,4 +1,4 @@
-
+/* 
  import { useParams } from "react-router"
 import { getAllNotesService } from "../services"
 import {Loading} from "../components/Loading"
@@ -19,12 +19,4 @@ return (
 
 
 
-
-
-
-
-
-
-
-
-
+ */

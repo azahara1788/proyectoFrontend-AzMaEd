@@ -102,7 +102,7 @@ hr:after {
   width: 350px;
   height: 120px;
   background: #fff;
-  background: linear-gradient(top, #fff 100%);
+  background: linear-gradient(to left, #fff 100%);
   border-radius: 100px;
   position: absolute;
   margin: 120px auto 20px;
@@ -190,7 +190,7 @@ hr:after {
   }
 }
 
-/* @media (min-width: 414px) {
+@media (min-width: 414px) {
   .container {
     padding-top: 25%;
     padding-right: 10%;
@@ -305,4 +305,3 @@ hr:after {
     margin: 60px;
   }
 }
- */

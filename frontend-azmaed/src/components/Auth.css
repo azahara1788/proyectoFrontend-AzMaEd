@@ -1,14 +1,5 @@
-
-
-*{
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-
-ul{
-list-style: none;   
+ul {
+  list-style: none;
 }
 
 a:link,
@@ -21,8 +12,8 @@ a:hover {
   color: #be3455;
 }
 
-.auth{
-  display:flex; 
+.auth {
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;

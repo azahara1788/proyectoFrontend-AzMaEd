@@ -1,0 +1,32 @@
+form.login {
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+}
+fieldset {
+  width: 15rem;
+  border-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+form.login button {
+  padding: 5px 20px;
+  align-self: center;
+  background: var(--background);
+  border: 1px solid var(--colorPrincipal);
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+
+  color: white;
+}
+.login h2 {
+  padding-left: 0;
+  font-size: 2rem;
+}

@@ -1,4 +1,4 @@
- import { useParams } from "react-router"
+/*  import { useParams } from "react-router"
 import { getAllNotesService } from "../services"
 import {Loading} from "../components/Loading"
 import {ErrorMessage} from "../components/ErrorMessage"
@@ -15,3 +15,4 @@ return (
    </section>
 )
 }; 
+ */

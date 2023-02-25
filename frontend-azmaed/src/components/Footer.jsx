@@ -1,6 +1,6 @@
-
+import "../App.css";
 import "./Footer.css";
 
 export const Footer = () => {
-    return <footer>© 2023 NotesForMe</footer>;
-  };
+  return <footer className="azahara">© 2023 NotesForMe</footer>;
+};
