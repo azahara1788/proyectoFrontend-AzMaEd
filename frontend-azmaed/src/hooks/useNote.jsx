@@ -14,11 +14,9 @@ const useNote = (id) => {
         setLoadingNote(true);
         const data = await getSingleNoteService({ id, token });
 
-        console.log("data de useNote", data);
-
         setNote(data);
       } catch (error) {
-        setError("Error en useNote", error.message);
+        setError("Esta no nota no existe", error.message);
       } finally {
         setLoadingNote(false);
       }

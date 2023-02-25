@@ -1,27 +1,47 @@
-main {
-  font-size: 1rem;
+section.homepage {
+  font-size: 1.2rem;
   font-weight: 500;
 }
-main section .user {
-  font-weight: bold;
-}
+
 .name-user {
   text-transform: capitalize;
-  padding: 0.5;
+  padding: 1rem;
 }
 
-h2 {
+section.homepage h2 {
+  font-size: 1.5rem;
   padding: 1rem;
 }
 p {
   padding: 0.5rem 1rem 0.01rem;
 }
 
-a:link,
-a:visited {
+#light section.homepage p .user .name-user a:link,
+section.homepage p .user .name-user a:visited {
   text-decoration: none;
   color: black;
 }
-a:hover {
+section.homepage a:hover {
+  text-decoration: none;
   color: var(--colorPrincipal);
+  font-weight: bold;
+}
+
+#dark section.homepage p a:link,
+section.homepage p a:visited {
+  text-decoration: none;
+  color: white;
+}
+#dark section.homepage a:hover {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+figure.azahara {
+  display: flex;
+  justify-content: flex-end;
+}
+figure.azahara img {
+  width: 9rem;
 }

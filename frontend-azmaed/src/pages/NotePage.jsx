@@ -1,38 +1,45 @@
-import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import "./NotePage.css";
-
+import { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import { deleteNoteService } from "../services";
 import useNote from "../hooks/useNote";
-import { addImageService, deleteNoteService } from "../services";
 
 export const NotePage = () => {
   const { id } = useParams();
-  const { note, error, setError } = useNote(id);
-  const { user, token } = useContext(AuthContext);
-  const { image } = useState();
+  const navigate = useNavigate();
 
-  const handleForm = async (e) => {
-    e.preventeDefault();
-  };
+  const { note, setNote, error, setError } = useNote(id);
+  const { user, token } = useContext(AuthContext);
 
   const deleteNote = async (id) => {
     try {
-      await deleteNoteService({ id, token });
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-  const upImage = async () => {
-    try {
-      await addImageService({ id, token, image });
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+      await deleteNoteService(id, { token });
 
+      navigate("/note");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  useEffect(() => {
+    // Defino function async para poder usar await
+    const getNotes = async () => {
+      //console.log(data.results);
+      // Guardo los datos del personaje en char con setChar
+      setNote(id);
+      // IMPORTANTE: no tengo el personaje actual aqui!
+      //console.log(char);
+    };
+
+    // Llamo la función
+    getNotes();
+  }, [setNote, id]);
+  console.log(id);
   return note ? (
     <article className="onenote">
+      <button onClick={() => setNote(parseInt(id) - 1)}>Prev</button>
+      <button onClick={() => setNote(parseInt(id) + 1)}>Next</button>
       <h3>{note.title}</h3>
       <p>{note.text}</p>
       {note.nameFile ? (
@@ -42,31 +49,20 @@ export const NotePage = () => {
             alt={note.title}
           />
         </figure>
-      ) : (
-        <form onSubmit={handleForm}>
-          <input type="file" id="image" name="nameFile" accept="image" />
+      ) : null}
 
+      {user && note ? (
+        <>
           <button
+            className="button-nota"
             onClick={() => {
-              upImage(note.id, image);
-            }}
-          >
-            Añdir Imagen
-          </button>
-        </form>
-      )}
-      {user && note.nameFile ? (
-        <section>
-          <button
-            onClick={() => {
-              if (window.confirm("¿Quieres borrar la nota?"))
-                deleteNote(note.id);
+              if (window.confirm("¿Quieres borrar la nota?")) deleteNote(id);
             }}
           >
             Borrar nota
           </button>
           {error ? <p>{error}</p> : null}
-        </section>
+        </>
       ) : null}
     </article>
   ) : (

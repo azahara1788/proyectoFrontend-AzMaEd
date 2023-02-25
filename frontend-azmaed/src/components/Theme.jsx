@@ -1,6 +1,5 @@
 import { useThemeContext } from "../context/ThemeContext";
-import "./Theme.css";
-
+/* import "./Theme.css"; */
 import { styled } from "@mui/material/styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -67,7 +66,7 @@ export default function Theme() {
   );
 }
 
-/* export const Theme = () => {
+/*  export const Theme = () => {
   const { toggleTheme, theme } = useThemeContext();
 
   return (
@@ -75,7 +74,13 @@ export default function Theme() {
       <label className="label">
         {theme === "light" ? "Modo Día" : "Modo Noche"}
       </label>
-      <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+      <ReactSwitch
+        height={17}
+        width={34}
+        onColor="#e5be01"
+        onChange={toggleTheme}
+        checked={theme === "dark"}
+      />
     </div>
   );
-}; */
+};  */

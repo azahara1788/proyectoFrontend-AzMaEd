@@ -1,0 +1,106 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(
+    to right,
+    var(--colorPrincipal),
+    var(--colorPrincipal) 50%,
+    #eee 75%,
+    #eee 75%
+  );
+
+  color: var(--colorSecundario);
+}
+
+header section.header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+  gap: 1rem;
+  position: relative;
+}
+header section.header nav {
+  position: absolute;
+
+  top: 1rem;
+  left: 4rem;
+}
+
+header section.header img {
+  height: 3rem;
+}
+
+header section.header h1 {
+  text-shadow: 1px 1px 1px var(--colorPrincipal);
+}
+
+header a:link,
+header a:visited {
+  text-decoration: none;
+  color: var(--colorSecundario);
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+/* header a:link .dark,
+header a:visited .dark {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+} */
+header nav {
+  padding-right: 0.5rem;
+}
+
+/* nav .especial {
+
+  position: sticky;
+  top: 0;
+  z-index: 1;
+} */
+/* header button.menu {
+  color: var(--colorSecundario);
+  cursor: pointer;
+  position: sticky;
+  top: 1.5rem;
+} */
+header ul.menu-principal {
+  width: 100vw;
+  height: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+header ul.menu-principal li {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+header ul.menu-principal :last-child {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--colorPrincipal);
+}
+
+header section.menu ul.menu-principal li a:link,
+header section.menu ul.menu-principal li a:visited {
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding-right: 1rem;
+  color: var(--colorSecundario);
+}

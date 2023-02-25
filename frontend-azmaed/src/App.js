@@ -20,12 +20,14 @@ import { Footer } from "./components/Footer";
 
 function App() {
   const { theme } = useThemeContext();
+
   const location = useLocation();
 
   return (
     <>
       <Header />
-      <main className="App" id={theme}>
+
+      <main id={theme}>
         <ErrorBoundary
           key={location.pathname}
           fallback={<h2>Error en la section</h2>}
@@ -88,17 +90,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route /* path="*" */ path="/notfound" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </ErrorBoundary>
       </main>
-      {/*  <Footer /> */}
       <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
+      <Footer />
     </>
   );
 }
 
 export default App;
-
-
-

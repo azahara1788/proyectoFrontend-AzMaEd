@@ -18,20 +18,24 @@ ul {
   gap: 1rem;
   padding: 1rem 1rem 1rem;
 }
-.list-categories li {
+.list-categories li,
+.list-notes a:link,
+.list-notes a:visited {
   width: 8rem;
   height: 8rem;
   overflow: hidden;
+  color: white;
   gap: 2rem;
   border: 1px solid var(--colorPrincipal);
   border-radius: 5%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   background: var(--background);
   text-transform: capitalize;
-  box-shadow: 1px 1px 3px var(--colorSecundario);
+  box-shadow: 1px 1px 3px var(--colorH2);
 }
 .list-categories a:link,
 .list-categories a:visited {
@@ -40,12 +44,14 @@ ul {
   font-weight: bold;
 }
 .list-categories a:hover {
-  color: var(--colorPrincipal);
+  color: var(--colorSecundario);
 }
 
-ul .list-notes {
-  display: block;
-  height: 5rem;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+.list-categories .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--colorPrincipal);
+  font-weight: 600;
+  font-size: large;
 }

@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export const PrivateRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
-  if (user) {
+  if (token) {
     return children;
   } else {
     return <Navigate to="/login" />;

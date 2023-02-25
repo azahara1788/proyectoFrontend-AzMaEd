@@ -4,6 +4,8 @@ import useNotes from "../hooks/useNotes";
 import { ListNotes } from "../components/ListNotes";
 import "./NotesUserPage.css";
 
+import "../App.css";
+
 export const NoteAllPage = () => {
   const { user } = useContext(AuthContext);
 

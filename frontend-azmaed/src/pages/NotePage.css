@@ -20,10 +20,10 @@ article section {
   padding: 1rem;
 }
 
-article button {
+article.onenote button .button-nota {
   background: var(--colorPrincipal);
   padding: 0.2rem;
-  border-style: none;
+  border: brown;
   box-shadow: 1px 1px 1px 1px var(--colorSecundario);
   border-radius: 5%;
   color: white;

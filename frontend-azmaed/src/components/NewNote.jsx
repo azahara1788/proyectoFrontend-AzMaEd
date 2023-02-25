@@ -30,7 +30,7 @@ export const NewNote = () => {
   return (
     <section className="section_note">
       <h1 className="h1_note">Añade una nueva nota</h1>
-      <form onSubmit={handleForm}  id="form_note">
+      <form onSubmit={handleForm} id="form_note">
         <fieldset className="form_caja_note">
           <label htmlFor="text">Título</label>
           <input type="text" id="title" name="title" required />

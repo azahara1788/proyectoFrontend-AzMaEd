@@ -1,14 +1,8 @@
-#light {
-  background: #f3ebf6;
-  font-family: sans-serif;
-  transition: 0.3s ease all;
-}
-
-#dark {
-  background: #46045e;
+/* #dark {
+  background: var(--colorPrincipal);
   color: #fff;
   transition: 0.3s ease all;
-}
+} */
 
 /* #light .main {
   background: #f3ebf6;
@@ -31,7 +25,7 @@
 #dark .label {
   color: #ffffff;
 } */
-
+/* 
 #dark section {
   background: #842aa4;
 }
@@ -39,3 +33,10 @@
 #dark section input {
   background: #fff;
 }
+
+#button-theme {
+  background-color: transparent;
+  font-size: 1.2rem;
+  border: none;
+}
+ */

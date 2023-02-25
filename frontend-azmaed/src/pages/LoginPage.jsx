@@ -1,3 +1,5 @@
+import "./LoginPage.css";
+import "../App.css";
 import { useContext, useState } from "react";
 import { logInUserService } from "../services";
 import { useNavigate } from "react-router-dom";
@@ -15,42 +17,40 @@ export const LoginPage = () => {
     try {
       const token = await logInUserService({ email, password });
 
-     login(token);
-     navigate("/note"); 
+      login(token);
+      navigate("/note");
     } catch (error) {
       setError("Email o password incorrecto", error.message);
     }
   };
   return (
-    <main>
-      <h1>Login</h1>
-      <form onSubmit={handleForm}>
-        <fieldset>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="pass">Password:</label>
-          <input
-            type="password"
-            name="pass"
-            id="pass"
-            value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </fieldset>
+    <form onSubmit={handleForm} className="login">
+      <h2>Login</h2>
+      <fieldset>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={email}
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </fieldset>
+      <fieldset>
+        <label htmlFor="pass">Password:</label>
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          value={password}
+          required
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </fieldset>
 
-        <button>Login</button>
-        {error ? <p>{error}</p> : null}
-      </form>
-    </main>
+      <button>Login</button>
+      {error ? <p>{error}</p> : null}
+    </form>
   );
 };

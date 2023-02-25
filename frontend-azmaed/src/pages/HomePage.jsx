@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ export const HomePage = () => {
   const { user, token } = useContext(AuthContext);
 
   return (
-    <main>
+    <section className="homepage">
       {user && token ? (
         <section className="user">
           <p className="name-user">Hola {user.name},</p>
@@ -42,17 +41,18 @@ export const HomePage = () => {
           Además,tiene modo oscuro, para que te resulte más comodo por la noche
           si quieres leer o escribir alguna nota.
         </p>
-        <p>
-          {" "}
-          A que esperas, registrate
-          <Link to={`/register`}> aquí</Link> y empieza a usarla.
-        </p>
+        {user && token ? null : (
+          <p>
+            {" "}
+            A que esperas, registrate
+            <Link to={`/register`}> aquí</Link> y empieza a usarla.
+          </p>
+        )}
+
+        <figure className="azahara">
+          <img src="/logosinfondo.png" alt="logo Notes for me" />
+        </figure>
       </section>
-    </main>
+    </section>
   );
 };
-=======
-
-
-
->>>>>>> fd9328ba9b63052f5a147806419c7b0e009e3a9e
