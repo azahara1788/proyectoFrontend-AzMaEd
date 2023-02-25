@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
-import { getUserDataService } from "../services";
+import { getMyDataService } from "../services/index";
 
 const useUser = (id) => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [errorUser, setErrorUser] = useState("");
 
   useEffect(() => {
     const loadUser = async () => {
       try {
         setLoading(true);
-        const data = await getUserDataService(id);
-
+        const data = await getMyDataService(id);
 
         setUser(data);
       } catch (error) {
-        setError(error.message);
+        setErrorUser(error.message);
       } finally {
         setLoading(false);
       }
@@ -24,8 +23,7 @@ const useUser = (id) => {
     loadUser();
   }, [id]);
 
-  return { user, error, loading };
+  return { user, errorUser, loading };
 };
 
-export default useUser; 
-
+export default useUser;

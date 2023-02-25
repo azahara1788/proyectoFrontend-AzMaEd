@@ -17,6 +17,7 @@ import { UserRoute } from "./components/UserRoute";
 import { CategoryPage } from "./pages/CategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
 import { Footer } from "./components/Footer";
+import { UserEditPage } from "./pages/UserEditPage";
 
 function App() {
   const { theme } = useThemeContext();
@@ -90,10 +91,19 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="/user/edit"
+              element={
+                <PrivateRoute>
+                  <UserEditPage />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route /* path="*" */ path="/notfound" element={<NotFoundPage />} />
           </Routes>
         </ErrorBoundary>
       </main>
+      <Footer />
       <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
       <Footer />
     </>
