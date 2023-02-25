@@ -1,5 +1,5 @@
 import "./NotePage.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
@@ -10,7 +10,7 @@ export const NotePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { note, setNote, error, setError } = useNote(id);
+  const { note, error, setError } = useNote(id);
   const { user, token } = useContext(AuthContext);
 
   const deleteNote = async (id) => {
@@ -22,24 +22,9 @@ export const NotePage = () => {
       setError(error.message);
     }
   };
-  useEffect(() => {
-    // Defino function async para poder usar await
-    const getNotes = async () => {
-      //console.log(data.results);
-      // Guardo los datos del personaje en char con setChar
-      setNote(id);
-      // IMPORTANTE: no tengo el personaje actual aqui!
-      //console.log(char);
-    };
 
-    // Llamo la función
-    getNotes();
-  }, [setNote, id]);
-  console.log(id);
   return note ? (
     <article className="onenote">
-      <button onClick={() => setNote(parseInt(id) - 1)}>Prev</button>
-      <button onClick={() => setNote(parseInt(id) + 1)}>Next</button>
       <h3>{note.title}</h3>
       <p>{note.text}</p>
       {note.nameFile ? (
@@ -54,12 +39,20 @@ export const NotePage = () => {
       {user && note ? (
         <>
           <button
+            name="edit"
+            onClick={() => {
+              navigate(`/note/edit/${id}`);
+            }}
+          >
+            🖋
+          </button>
+          <button
             className="button-nota"
             onClick={() => {
               if (window.confirm("¿Quieres borrar la nota?")) deleteNote(id);
             }}
           >
-            Borrar nota
+            🗑
           </button>
           {error ? <p>{error}</p> : null}
         </>
