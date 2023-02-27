@@ -20,7 +20,6 @@ import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
 import { EditNotePage } from "./pages/EditNotePage";
 import { NewNotePge } from "./pages/NewNotePage";
-import { NewNote } from "./components/NewNote";
 
 function App() {
   const { theme } = useThemeContext();
@@ -38,7 +37,6 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/newnote" element={<NewNote />} />
             <Route
               path="/note"
               element={
