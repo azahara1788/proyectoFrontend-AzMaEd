@@ -61,7 +61,7 @@ export const NewNote = (id) => {
                   id="category_id"
                   name="category_id"
                   value={id.category_id}
-                  /* readOnly */
+                  readOnly
                 />
               </label>
             </fieldset>
