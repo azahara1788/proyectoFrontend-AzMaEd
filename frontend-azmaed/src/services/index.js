@@ -19,7 +19,7 @@ export const registerUserService = async ({
 };
 
 export const saveNoteService = async ({ data, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes`, {
     method: "POST",
     body: data,
     headers: {
@@ -60,7 +60,6 @@ export const getMyDataService = async ({ token }) => {
   });
 
   const json = await response.json();
-  console.log(json);
 
   if (!response.ok) {
     throw new Error(json.message);
@@ -85,6 +84,23 @@ export const getAllNotesService = async ({ token }) => {
   return json.data;
 };
 
+export const editUserService = async ({ id, token, data }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+  console.log(json);
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
 export const getSingleNoteService = async ({ id, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
     headers: {
@@ -269,24 +285,6 @@ export const deleteCategoryService = async (id, token) => {
   );
 
   const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-};
-
-export const editUserService = async ({ id, token, data }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
-
-  const json = await response.json();
-  console.log(json);
 
   if (!response.ok) {
     throw new Error(json.message);

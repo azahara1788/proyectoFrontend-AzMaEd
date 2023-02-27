@@ -1,41 +1,53 @@
 .section_register {
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid rgb(129, 168, 227);
   border-radius: 8px;
-  width: 80%;
-  padding: 20px;
-  margin: 0 auto;
-  margin-top: 100px;
   box-shadow: 0px 0px 8px gray;
-  min-height: 200px;
-  max-width: 628px;
-  min-width: 300px;
+  max-width: 300px;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: bold;
+  position: relative;
+}
+
+.div_register {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to top, transparent, #48e);
+  text-align: center;
+  height: 85.6vh;
+  align-items: center;
+  justify-content: center;
 }
 
 #form_register {
-  color: #999;
-  display: flex;
-  flex-direction: column;
+  align-self: center;
   position: relative;
+}
+
+#form_register fieldset {
+  padding: 7px;
 }
 
 .h1_register {
   text-align: center;
-  margin-bottom: 10px;
 }
 
 .form_caja {
-  margin: 5px 0px;
   display: flex;
-}
-
-.form_caja label {
-  flex-basis: 80px;
+  border: none;
+  align-items: center;
 }
 
 .form_caja input {
   flex: 1;
   padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  margin-top: 3px;
 }
 
 .form_caja input:focus {
@@ -43,16 +55,119 @@
 }
 
 .register_button {
-  background-color: rgb(0, 149, 255);
-  color: #fff;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+  position: relative;
+  padding: 3px 5px;
   border: none;
-  padding: 6px;
-  margin-top: 5px;
+  border-bottom: 1px solid;
   border-radius: 5px;
+  background: rgba(255, 255, 255, 0);
+  width: 80px;
+  margin-top: 10px;
   cursor: pointer;
-  transition: all ease 300ms;
 }
 
-.register_button:hover {
-  background-color: rgb(0, 124, 240);
+.register_button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  background: #2348dd;
+  height: 4px;
+  transition-property: left;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+.register_button:hover:before,
+.register_button:focus:before,
+.register_button:active:before {
+  left: 0;
+}
+
+@media (min-width: 359px) and (max-width: 365px) {
+  .div_register {
+    height: 87vh;
+  }
+}
+
+@media (min-width: 390px) {
+  .div_register {
+    height: 88.6vh;
+  }
+}
+
+@media (min-width: 412px) {
+  .div_register {
+    height: 89.5vh;
+  }
+}
+
+@media (min-width: 414px) {
+  .div_register {
+    height: 89.3vh;
+  }
+}
+
+@media (min-width: 540px) {
+  .div_register {
+    height: 86.7vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .div_register {
+    height: 90.6vh;
+  }
+  .cloud {
+    margin: 150px auto 150px;
+  }
+  ._404 {
+    font-size: 200px;
+    height: 210px;
+  }
+  ._1 {
+    letter-spacing: 25px;
+    font-size: 2.1em;
+  }
+  ._2 {
+    margin-top: 5px;
+    font-size: 32px;
+  }
+  .btn {
+    margin-top: 5px;
+    width: 370px;
+    padding: 7px;
+    font-size: 30px;
+  }
+  hr {
+    width: 370px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 820px) {
+  .div_register {
+    height: 91.9vh;
+  }
+}
+
+@media (min-width: 912px) {
+  .div_register {
+    height: 92.9vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .div_register {
+    height: 84vh;
+  }
+}
+
+@media (min-width: 1280px) {
+  .div_register {
+    height: 88vh;
+  }
 }

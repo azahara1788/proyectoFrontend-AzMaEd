@@ -18,6 +18,9 @@ import { CategoryPage } from "./pages/CategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
 import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
+import { EditNotePage } from "./pages/EditNotePage";
+import { NewNotePge } from "./pages/NewNotePage";
+import { NewNote } from "./components/NewNote";
 
 function App() {
   const { theme } = useThemeContext();
@@ -35,6 +38,7 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/newnote" element={<NewNote />} />
             <Route
               path="/note"
               element={
@@ -64,6 +68,22 @@ function App() {
               element={
                 <PrivateRoute>
                   <NotePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/note/edit/:id"
+              element={
+                <PrivateRoute>
+                  <EditNotePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/notes/category/:id/newnote"
+              element={
+                <PrivateRoute>
+                  <NewNotePge />
                 </PrivateRoute>
               }
             />
@@ -99,13 +119,12 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
-            <Route /* path="*" */ path="/notfound" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </ErrorBoundary>
       </main>
       <Footer />
       <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
-      <Footer />
     </>
   );
 }

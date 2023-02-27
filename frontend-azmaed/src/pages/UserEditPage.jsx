@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { editUserService } from "../services";
 import "./UserEditPage.css";
+import { toast } from "react-toastify";
+import { Loading } from "../components/Loading";
 
 export const UserEditPage = () => {
   const [pass1, setPass1] = useState("");
@@ -10,6 +12,7 @@ export const UserEditPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const { user, token, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,15 +25,16 @@ export const UserEditPage = () => {
     try {
       e.preventDefault();
       if (pass1 !== pass2) {
-        throw new Error("Las contraseñas no coinciden");
+        throw new Error(toast.error("Las contraseñas no coinciden"));
       }
       const data = { name, surname };
       if (pass1) {
         data.password = pass1;
       }
-
       await editUserService({ id: user.id, data, token });
+      setLoading(true);
       updateUser(data);
+      toast.success("¡Has editado correctamente tus datos!");
       navigate("/user");
     } catch (error) {
       setError(error.message);
@@ -42,7 +46,7 @@ export const UserEditPage = () => {
         <h1 className="h1_edit_user">Editar datos de usuario</h1>
         <form id="form_edit_user" onSubmit={handleSubmit}>
           <fieldset className="form_caja_edit">
-            <label htmlFor="name">Nombre:</label>
+            <label htmlFor="name">Nombre</label>
             <input
               type="text"
               id="name"
@@ -52,7 +56,7 @@ export const UserEditPage = () => {
             />
           </fieldset>
           <fieldset className="form_caja_edit">
-            <label htmlFor="surname">Apellidos:</label>
+            <label htmlFor="surname">Apellidos</label>
             <input
               type="text"
               id="surname"
@@ -63,7 +67,7 @@ export const UserEditPage = () => {
           </fieldset>
 
           <fieldset className="form_caja_edit">
-            <label htmlFor="pass1">Contraseña:</label>
+            <label htmlFor="pass1">Contraseña</label>
             <input
               type="password"
               id="pass1"
@@ -74,7 +78,7 @@ export const UserEditPage = () => {
             />
           </fieldset>
           <fieldset className="form_caja_edit">
-            <label htmlFor="pass2">Repita contraseña:</label>
+            <label htmlFor="pass2">Repita contraseña</label>
             <input
               type="password"
               id="pass2"
@@ -87,6 +91,7 @@ export const UserEditPage = () => {
           <button className="edit_user_button">Guardar</button>
         </form>
         {error && <p>{error}</p>}
+        {loading && <Loading />}
       </section>
     </div>
   );

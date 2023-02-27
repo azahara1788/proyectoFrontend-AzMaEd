@@ -1,42 +1,43 @@
 .div_edit_user {
-  height: 100%;
-  width: 100%;
   display: flex;
+  flex-direction: column;
+  background: linear-gradient(to top, transparent, #48e);
+  text-align: center;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
 }
 .section_edit_user {
-  border: 1px solid black;
-  background: linear-gradient(to bottom, transparent, #48e);
+  border: 1px solid rgb(129, 168, 227);
   border-radius: 8px;
-  padding: 20px;
-  max-height: 300px;
   box-shadow: 0px 0px 8px gray;
+  min-width: 330px;
   max-width: 375px;
-  min-width: 300px;
-  align-self: center;
-  margin: auto;
+  min-height: 310px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: bold;
+  position: relative;
 }
 
 #form_edit_user {
-  color: rgb(0, 0, 0);
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  align-self: center;
+}
+
+#form_edit_user fieldset {
+  padding: 5px;
 }
 
 .h1_edit_user {
   text-align: center;
-  margin-bottom: 10px;
 }
 
 .form_caja_edit {
-  margin: 5px 0px;
   display: flex;
   border: none;
   align-items: center;
-}
-
-.form_caja_edit label {
-  flex-basis: 80px;
 }
 
 .form_caja_edit input {
@@ -44,36 +45,17 @@
   padding: 5px;
   border: none;
   border-radius: 5px;
-  margin-left: 10px;
-  width: 100px;
+  width: 150px;
 }
 
 .form_caja_edit input:focus {
   outline: none;
 }
 
-/* .edit_user_button {
-  background-color: rgb(0, 149, 255);
-  color: #fff;
-  border: none;
-  padding: 6px;
-  margin-top: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all ease 300ms;
-}
-
-.register_button:hover {
-  background-color: rgb(0, 124, 240);
-} */
-
 .edit_user_button {
-  display: inline-block;
-  vertical-align: middle;
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 3px rgba(0, 0, 0, 1);
   position: relative;
-  overflow: hidden;
   padding: 3px 5px;
   border: none;
   border-bottom: 1px solid;
@@ -81,6 +63,8 @@
   background: rgba(255, 255, 255, 0);
   width: 70px;
   align-self: flex-end;
+  margin-top: 8px;
+  cursor: pointer;
 }
 .edit_user_button:before {
   content: "";
@@ -99,4 +83,26 @@
 .edit_user_button:focus:before,
 .edit_user_button:active:before {
   left: 0;
+}
+
+@media (min-width: 760px) and (min-height: 1000px) {
+  .section_edit_user {
+    font-size: 25px;
+    min-width: 475px;
+    max-width: 800px;
+    min-height: 450px;
+  }
+  .edit_user_button {
+    font-size: 20px;
+    min-width: 150px;
+    margin-top: 10px;
+  }
+  #form_edit_user fieldset {
+    padding: 6px;
+  }
+
+  .form_caja_edit input {
+    padding: 6px;
+    width: 230px;
+  }
 }
