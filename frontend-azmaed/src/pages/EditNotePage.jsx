@@ -1,42 +1,41 @@
-import { useParams } from "react-router"
-import useNote from "../hooks/useNote"; 
+import { useParams } from "react-router";
+import useNote from "../hooks/useNote";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
-import { editNoteService } from "../services"; 
-import  "./EditNotePage.css";
+import { editNoteService } from "../services";
+import "./EditNotePage.css";
 
-export const EditNotePage = ()=>{
-const {id} = useParams();
-const {note} = useNote(id);
-const [title, setTitle] = useState("");
-const [text, setText] = useState("");
-const [place, setPlace] = useState("");
-/* const [nameFile, setNameFile]= useState(""); */
-const [error, setError]=useState("");
-const {token} = useContext(AuthContext);
-const navigate = useNavigate();
+export const EditNotePage = () => {
+  const { id } = useParams();
+  const { note } = useNote(id);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [place, setPlace] = useState("");
+  /* const [nameFile, setNameFile]= useState(""); */
+  const [error, setError] = useState("");
+  const { token } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTitle(note?.title || "");
     setText(note?.text || "");
     setPlace(note.place || "");
-   /*  setNameFile(note?.nameFile || ""); */
+    /*  setNameFile(note?.nameFile || ""); */
   }, [note]);
   const handleSubmit = async (e) => {
     try {
-        e.preventDefault ()
+      e.preventDefault();
 
-      const data = {title, text, place/* , nameFile */};
-     
-      await editNoteService({id, data, token });
+      const data = { title, text, place /* , nameFile */ };
+
+      await editNoteService({ id, data, token });
       toast.success("¡Se ha cambiado correctamente tu nota!");
       navigate(`/note/${id}`);
     } catch (error) {
       setError(error.message);
     }
-  
   };
   return (
     <div className="div_edit_note">
@@ -92,16 +91,13 @@ const navigate = useNavigate();
             src={`${process.env.REACT_APP_BACKEND}/${note.nameFile}`}
             alt={note.title}
           /> */}
-       {/*  </figure>
+          {/*  </figure>
       ) : null} */}
-         {/*  </fieldset> */}
+          {/*  </fieldset> */}
           <button className="edit_note_button">Guardar</button>
         </form>
         {error && <p>{error}</p>}
       </section>
     </div>
-    
   );
 };
-
- 

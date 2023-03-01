@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ListNotesByCategory } from "../components/ListNotesByCategory";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { Loading } from "../components/Loading";
 import "./CategoryPage.css";
 /* import "../App.css"; */
 
@@ -13,7 +14,7 @@ export const CategoryPage = () => {
   const { notes, errorNotes, loadingNotes } = useNotes();
   const { id } = useParams();
 
-  if (!user || loadingNotes) return <p>Cargando...</p>;
+  if (!user || loadingNotes) return <Loading />;
 
   if (errorNotes) return <p>Error</p>;
 

@@ -16,15 +16,8 @@ import { NotePage } from "./pages/NotePage";
 import { UserRoute } from "./components/UserRoute";
 import { CategoryPage } from "./pages/CategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
-import {NewNotePage} from "./pages/NewNotePage";
-import {EditNotePage} from "./pages/EditNotePage";
 import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
-import { Menu } from "./components/MenuPincipal";
-import { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
-import "./components/Header.css";
-
 
 function App() {
   const { theme } = useThemeContext();
@@ -36,8 +29,6 @@ function App() {
       <Header />
 
       <main id={theme}>
-     {user && token ? <Menu /> : null}
-      
         <ErrorBoundary
           key={location.pathname}
           fallback={<h2>Error en la section</h2>}
@@ -84,7 +75,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-             
+
             <Route
               path="/note/edit/:id"
               element={

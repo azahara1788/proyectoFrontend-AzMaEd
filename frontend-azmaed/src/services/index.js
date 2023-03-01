@@ -84,7 +84,7 @@ export const getAllNotesService = async ({ token }) => {
   return json.data;
 };
 
-export const editUserService = async ({id, token, data }) => {
+export const editUserService = async ({ id, token, data }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
@@ -122,7 +122,7 @@ export const getPublicNoteService = async (id) => {
   );
 
   const json = await response.json();
-console.log (json)
+
   if (!response.ok) {
     throw new Error(json.message);
   }
@@ -130,22 +130,7 @@ console.log (json)
   return json.data;
 };
 
-export const editPublicNoteService = async ( id,{token, data }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/public/${id}`, {
-    method: "PUT",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
-  const json = await response.json();
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
-};
-
-export const editNoteService = async ( id,{token, data }) => {
+export const editNoteService = async ({ id, token, data }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
@@ -194,6 +179,7 @@ export const deleteImageService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
+  return json.data;
 };
 
 export const deleteNoteService = async (id, { token }) => {
@@ -260,7 +246,7 @@ export const saveCategoryService = async ({ data, token }) => {
   });
 
   const json = await response.json();
-
+  console.log(json);
   if (!response.ok) {
     throw new Error(json.message);
   }
@@ -281,10 +267,11 @@ export const editCategoryService = async ({ id, token, data }) => {
   );
 
   const json = await response.json();
-
+  console.log(json);
   if (!response.ok) {
     throw new Error(json.message);
   }
+  return json;
 };
 
 export const deleteCategoryService = async (id, token) => {
@@ -299,7 +286,7 @@ export const deleteCategoryService = async (id, token) => {
   );
 
   const json = await response.json();
-
+  console.log(json);
   if (!response.ok) {
     throw new Error(json.message);
   }

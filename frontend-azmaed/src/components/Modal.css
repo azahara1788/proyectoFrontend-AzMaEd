@@ -11,7 +11,30 @@
 }
 
 .modal-fg {
-  background-color: white;
-  color: black;
+  display: flex;
+  flex-direction: column;
+  background: var(--backBody);
+  color: var(--colorPrincipal);
+  justify-content: center;
   padding: 20px;
+  border-radius: 4%;
+}
+
+.modal-fg section#nueva-Categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-fg section h2 {
+  text-transform: none;
+}
+.modal-fg section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-fg section form fieldset input#category {
+  margin-left: 0;
 }

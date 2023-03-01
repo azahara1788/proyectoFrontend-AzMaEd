@@ -1,22 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { deleteCategoryService, getCategoryService } from "../services";
-import { useNavigate } from "react-router-dom";
 
 const useCategories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [errorCat, setErrorCat] = useState("");
   const { token } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const deleteCategory = async (id) => {
     try {
       await deleteCategoryService(id, token);
-
-      navigate("/note");
     } catch (error) {
-      setError(error.message);
+      setErrorCat(error.message);
+      console.log(error);
     }
   };
 
@@ -26,8 +23,9 @@ const useCategories = () => {
         setLoading(true);
         const data = await getCategoryService({ token });
         setCategories(data);
+        console.log(data);
       } catch (error) {
-        setError("Error en useCategory", error.message);
+        setErrorCat("Error en useCategory", error.message);
       } finally {
         setLoading(false);
       }
@@ -36,7 +34,11 @@ const useCategories = () => {
     getCategories();
   }, [token]);
 
-  return { categories, error, loading, deleteCategory };
+  const updateCat = (newCat) => {
+    setCategories({ categories, ...newCat });
+  };
+
+  return { categories, errorCat, loading, deleteCategory, updateCat };
 };
 
 export default useCategories;

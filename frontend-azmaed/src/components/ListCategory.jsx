@@ -8,8 +8,6 @@ export const ListCategory = ({ categories }) => {
   const navigate = useNavigate();
   const { deleteCategory } = useCategories();
 
-  /* delete category */
-
   return categories.length ? (
     <ul className="list-categories">
       {categories.map((cat) => {

@@ -17,9 +17,8 @@ export const NoteAllPage = () => {
 
   return (
     <section className="noteAllPage">
-      <h2>Bienvenid@, {user.name}</h2>
       <section className="note">
-        <h3>Todas tus notas</h3>
+        <h3>Mis notas</h3>
         <ListNotes notes={notes} />
       </section>
     </section>

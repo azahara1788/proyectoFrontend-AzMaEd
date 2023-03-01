@@ -6,7 +6,7 @@ import { Loading } from "./Loading";
 import "./NewCategory.css";
 import useCategories from "../hooks/useCategories";
 
-export const NewCategory = () => {
+export const EditCategory = () => {
   const { updateCat, loading } = useCategories();
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);

@@ -10,22 +10,22 @@ import { NewCategory } from "../components/NewCategory";
 
 export const NotesUserPage = () => {
   const { user } = useContext(AuthContext);
-  const { categories, error, loading } = useCategories();
-  // const { notes, errorNotes, loadingNotes } = useNotes();
+  const { categories, errorCat, loading } = useCategories();
 
   if (!user || loading) return <p>Cargando...</p>;
 
-  if (error) return <p>Error</p>;
+  if (errorCat) return <p>{errorCat}</p>;
 
   return (
     <section className="userpage">
-      <h2>Bienvenid@, {user.name}</h2>
+      <h2>¡Hola {user.name}!</h2>
 
       <section className="categorias">
         <h3>Categorías:</h3>
-        <Modal label="categoria">
+        <Modal label="+ Categoría">
           <NewCategory />
         </Modal>
+   
 
         <ListCategory categories={categories} />
       </section>

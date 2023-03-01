@@ -1,11 +1,9 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Toda la página tiene una tipografía sin serifa. */
 body #root {
   font-family: "Montserrat", sans-serif;
   display: grid;
@@ -84,13 +82,46 @@ main ul.menu-principal li a:visited {
   color: var(--colorPrincipal);
 }
 
+main ul.menu-principal {
+  width: 100vw;
+  height: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 0.5rem;
+  border-bottom: #062863 1px solid;
+  background-color: #efb810;
+}
+main ul.menu-principal li {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+main ul.menu-principal :last-child {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--colorPrincipal);
+}
+
+main ul.menu-principal li a:link,
+main ul.menu-principal li a:visited {
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding-right: 1rem;
+  color: var(--colorPrincipal);
+}
+
 footer.azahara {
   grid-row: 3/4;
 }
-body#root main#dark footer.azahara{
-  background: var(--backgroundDark);
-}
 
+body #root main#dark {
+  background: var(--colorPrincipal);
+  color: white;
+}
 
 .switch {
   display: flex;
