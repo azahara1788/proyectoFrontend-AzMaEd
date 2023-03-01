@@ -48,18 +48,6 @@ footer.azahara {
   grid-row: 3/4;
 }
 
-/* marc => */
-
-/* #light {
-  background: white;
-  font-family: sans-serif;
-  transition: 0.3s ease all;
-} */
-
-/* 
-#light .main {
-  background: white;
-} */
 body #root main#dark {
   background: var(--colorPrincipal);
   color: white;
@@ -75,16 +63,8 @@ body #root main#dark {
   height: 0.2rem;
 }
 
-/* #light .label {
-  color: #000000;
-} */
 #dark .label {
   color: #ffffff;
 }
 
-#button-theme {
-  background-color: transparent;
-  font-size: 1.2rem;
-  border: none;
-}
 /*<= marc  */

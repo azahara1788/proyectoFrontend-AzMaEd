@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import "./UserPage.css";
 import { AuthContext } from "../context/AuthContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { toast } from "react-toastify";
 
 export const UserPage = () => {
   const { user } = useContext(AuthContext);
 
-  useEffect(() => {
-    toast.info("Puedes editar tus datos de usuario, si quieres 😌");
-  }, [user]);
+  toast.info("Puedes editar tus datos de usuario, si quieres 😌");
+
   return (
     user !== null && (
       <section className="section_userPage">

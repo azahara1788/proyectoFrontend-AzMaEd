@@ -21,7 +21,7 @@ export const RegisterPage = () => {
     setError("");
 
     if (pass1 !== pass2) {
-      setError("Las contraseñas no coinciden");
+      setError(toast.error("Las contraseñas no coinciden"));
       return;
     }
     try {
@@ -30,7 +30,7 @@ export const RegisterPage = () => {
       navigate("/login");
       toast.success("¡Te has registrado correctamente!");
     } catch (error) {
-      setError(error.message);
+      setError(toast.error(error.message));
     }
     let form = e.target;
     form.reset();

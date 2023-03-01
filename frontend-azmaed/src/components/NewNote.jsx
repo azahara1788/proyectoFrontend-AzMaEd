@@ -4,32 +4,39 @@ import { AuthContext } from "../context/AuthContext";
 import "./NewNote.css";
 import { Loading } from "./Loading";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const NewNote = (id) => {
-  const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { token } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleForm = async (e) => {
     e.preventDefault();
 
     try {
       setSaving(true);
+      setLoading(true);
       const data = new FormData(e.target);
       const note = await saveNoteService({ data, token });
-      console.log(note);
-      const img = await addImageService({ token, image });
-      console.log(img);
-      e.target.reset();
-      setLoading(true);
+      if (image) {
+        const imageData = new FormData();
+        imageData.set("image", image);
+        await addImageService({
+          token,
+          image: imageData,
+          id: note.id,
+        });
+      }
+
       toast.success("¡Has guardado tu nota correctamente!");
-      setImage(null);
+      navigate(`/note/${note.id}`);
     } catch (error) {
-      setError(error.message);
+      toast.error(error.message);
     } finally {
+      setLoading(false);
       setSaving(false);
     }
   };
@@ -56,13 +63,18 @@ export const NewNote = (id) => {
             <fieldset className="form_caja_note">
               <legend>Categoría</legend>
               <label htmlFor="text">
-                <input
-                  type="number"
+                <select
                   id="category_id"
                   name="category_id"
-                  value={id.category_id}
-                  readOnly
-                />
+                  required
+                  /*  readOnly */
+                >
+                  <option value="">Selecciona una categoría</option>
+                  <option value={1}>Viajes</option>
+                  <option value={2}>Compras</option>
+                  <option value={3}>Evento</option>
+                  <option value={4}>Recordatorios</option>
+                </select>
               </label>
             </fieldset>
 
@@ -92,7 +104,7 @@ export const NewNote = (id) => {
             </fieldset>
             <button className="note_button">Guardar Nota</button>
             {saving ? <p>Saving Note</p> : null}
-            {error ? <p>{error}</p> : null}
+
             {loading && <Loading />}
           </form>
         </section>

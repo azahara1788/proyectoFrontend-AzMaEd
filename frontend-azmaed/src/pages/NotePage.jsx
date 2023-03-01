@@ -12,7 +12,7 @@ export const NotePage = () => {
 
   const { note, error, setError } = useNote(id);
   const { user, token } = useContext(AuthContext);
-
+  console.log(note);
   const deleteNote = async (id) => {
     try {
       await deleteNoteService(id, { token });
@@ -26,7 +26,9 @@ export const NotePage = () => {
   return note ? (
     <article className="onenote">
       <h3>{note.title}</h3>
+      <h4>{note.category}</h4>
       <p>{note.text}</p>
+      <p>{note.place}</p>
       {note.nameFile ? (
         <figure className="noteimage">
           <img

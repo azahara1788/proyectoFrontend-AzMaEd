@@ -37,6 +37,7 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route
               path="/note"
               element={
@@ -122,7 +123,7 @@ function App() {
         </ErrorBoundary>
       </main>
       <Footer />
-      <ToastContainer position="bottom-center" pauseOnHover theme="dark" />
+      <ToastContainer position="bottom-center" pauseOnHover theme="colored" />
     </>
   );
 }

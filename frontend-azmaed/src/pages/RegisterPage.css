@@ -9,6 +9,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   font-weight: bold;
+}
+section.section_register {
   position: relative;
 }
 
@@ -20,11 +22,6 @@
   height: 85.6vh;
   align-items: center;
   justify-content: center;
-}
-
-#form_register {
-  align-self: center;
-  position: relative;
 }
 
 #form_register fieldset {

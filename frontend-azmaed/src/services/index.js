@@ -145,7 +145,7 @@ export const editNoteService = async ({ id, token, data }) => {
     throw new Error(json.message);
   }
 };
-export const addImageService = async (id, { token, image }) => {
+export const addImageService = async ({ id, token, image }) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/images/notes/${id}`,
     {
