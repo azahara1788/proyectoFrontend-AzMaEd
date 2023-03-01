@@ -28,3 +28,15 @@ article.onenote button .button-nota {
   border-radius: 5%;
   color: white;
 }
+
+.publiNote{
+  background: var(--colorPrincipal);
+  padding: 0.2rem;
+  border: brown;
+  box-shadow: 1px 1px 1px 1px var(--colorSecundario);
+  border-radius: 5%;
+  color: white;
+  margin-top: 20rem;
+  height: 50rem;
+  width: 50rem;
+}

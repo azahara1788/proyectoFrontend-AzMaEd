@@ -7,8 +7,8 @@ export const Auth = () => {
 
   return user ? (
     <section>
-      <Link to={`/users/login`}>{user.email}</Link>{" "}
-      {/* <button onClick={() => logout()}>Cerrar Sesión</button> */}
+      <Link to={`/users/login`}>✍️{user.name}</Link>{" "}
+     
     </section>
   ) : (
     <ul>

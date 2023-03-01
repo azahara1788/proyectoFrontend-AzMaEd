@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     height: 75vh;
+    font-weight: bold;
+    color: black 
+
   }
   section .note {
     padding: 1rem;
@@ -20,3 +23,9 @@
     font-size: 1.75rem;
     padding-bottom: 0.5rem;
   }
+
+  .fieldset{
+    display: flex;
+  }
+  
+ 

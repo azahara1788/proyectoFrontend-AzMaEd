@@ -1,18 +1,15 @@
-/*  import { useParams } from "react-router"
-import { getAllNotesService } from "../services"
-import {Loading} from "../components/Loading"
-import {ErrorMessage} from "../components/ErrorMessage"
+import { useParams } from "react-router"
+import {NewNote} from "../components/NewNote"
+import "./NewNotePage.css"
 
-export default function NewNotePage (){
+
+export const NewNotePage= ()=>{
     const {id} = useParams();
-    const {note, error, loading} = useNote(note_id);
-        
-        if(loading) return <Loading/>
-        if(error) return <ErrorMessage/>
+    console.log (id)
 return (
    <section>
-    <NewNote/>
+    <NewNote category_id= {id}/>
    </section>
 )
 }; 
- */
+ 

@@ -1,22 +1,24 @@
-/* 
- import { useParams } from "react-router"
-import { getAllNotesService } from "../services"
-import {Loading} from "../components/Loading"
-import {ErrorMessage} from "../components/ErrorMessage"
 
-export default function NewNotePage (){
+import { useParams } from "react-router"
+/* import {Loading} from "../components/Loading"
+import {ErrorMessage} from "../components/ErrorMessage"
+import useNote from "../hooks/useNote"; */
+import { EditNote } from "../components/EditNote";
+
+
+export const EditNotePage = ()=>{
     const {id} = useParams();
-    const {note, error, loading} = useNote(note_id);
+    /* const {error, loading} = useNote();
 
         if(loading) return <Loading/>
-        if(error) return <ErrorMessage/>
+        if(error) return <ErrorMessage/> */
 return (
    <section>
-    <NewNote/>
+    <EditNote note_id = {id}/>
    </section>
 );
 } 
 
 
 
- */
+ 
