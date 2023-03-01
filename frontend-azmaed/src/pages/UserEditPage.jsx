@@ -37,7 +37,7 @@ export const UserEditPage = () => {
       toast.success("¡Has editado correctamente tus datos!");
       navigate("/user");
     } catch (error) {
-      setError(error.message);
+      setError(toast.error(error.message));
     }
   };
   return (
