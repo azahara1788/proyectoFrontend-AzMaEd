@@ -16,10 +16,11 @@ import { NotePage } from "./pages/NotePage";
 import { UserRoute } from "./components/UserRoute";
 import { CategoryPage } from "./pages/CategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
+import {NewNotePage} from "./pages/NewNotePage";
+import {EditNotePage} from "./pages/EditNotePage";
 import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
-import { EditNotePage } from "./pages/EditNotePage";
-import { NewNotePge } from "./pages/NewNotePage";
+
 
 function App() {
   const { theme } = useThemeContext();
@@ -37,7 +38,6 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
-
             <Route
               path="/note"
               element={
@@ -71,18 +71,19 @@ function App() {
               }
             />
             <Route
+              path="/notes/category/:id/newNote"
+              element={
+                <PrivateRoute>
+                  <NewNotePage />
+                </PrivateRoute>
+              }
+            />
+             
+            <Route
               path="/note/edit/:id"
               element={
                 <PrivateRoute>
                   <EditNotePage />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/notes/category/:id/newnote"
-              element={
-                <PrivateRoute>
-                  <NewNotePge />
                 </PrivateRoute>
               }
             />

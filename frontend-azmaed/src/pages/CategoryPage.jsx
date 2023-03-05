@@ -22,7 +22,7 @@ export const CategoryPage = () => {
       <ListNotesByCategory notes={notes} id={id} />
 
       <section className="linkAnadirNota">
-        <Link to={`/`}> Añadir nota </Link>
+        <Link to={`/notes/category/${id}/newNote`}> Añadir nota </Link>
       </section>
     </section>
   );
