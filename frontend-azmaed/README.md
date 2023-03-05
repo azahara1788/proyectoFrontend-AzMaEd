@@ -10,7 +10,8 @@ Todo esto lo realiza también en modo responsive.
 
  
 
-***falta por terminar*** conseguir realizar que la nota se haga pública o privada.
+***falta por terminar*** 
+Conseguir realizar que la nota se haga pública o privada.
 
  
 
