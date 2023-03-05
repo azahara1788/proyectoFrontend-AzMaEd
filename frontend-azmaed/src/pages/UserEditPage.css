@@ -1,33 +1,21 @@
 .div_edit_user {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, transparent, #48e);
+  background: linear-gradient(to bottom, transparent, #48e);
   text-align: center;
-  height: 80vh;
+  height: 83vh;
   align-items: center;
   justify-content: center;
-}
-.section_edit_user {
-  border: 1px solid rgb(129, 168, 227);
-  border-radius: 8px;
-  box-shadow: 0px 0px 8px gray;
-  min-width: 330px;
-  max-width: 375px;
-  min-height: 310px;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  font-weight: bold;
-  position: relative;
 }
 
 #form_edit_user {
   align-self: center;
+  align-items: center;
 }
 
 #form_edit_user fieldset {
-  padding: 5px;
+  padding: 0.5rem;
+  margin-left: 1.3rem;
 }
 
 .h1_edit_user {
@@ -42,11 +30,11 @@
 
 .form_caja_edit input {
   flex: 1;
-  padding: 5px;
+  padding: 0.3rem;
   border: none;
-  border-radius: 5px;
-  width: 150px;
-}
+  border-radius: 10%;
+  width: 10rem;
+} 
 
 .form_caja_edit input:focus {
   outline: none;
@@ -56,14 +44,14 @@
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 3px rgba(0, 0, 0, 1);
   position: relative;
-  padding: 3px 5px;
+  padding: 0.3rem 0.3rem;
   border: none;
   border-bottom: 1px solid;
-  border-radius: 5px;
+  border-radius: 10%;
   background: rgba(255, 255, 255, 0);
-  width: 70px;
+  width: 5rem;
   align-self: flex-end;
-  margin-top: 8px;
+  margin-top: 1rem;
   cursor: pointer;
 }
 .edit_user_button:before {
@@ -74,7 +62,7 @@
   right: 0;
   bottom: 0;
   background: #2348dd;
-  height: 4px;
+  height: 2rem;
   transition-property: left;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
@@ -85,6 +73,18 @@
   left: 0;
 }
 
+
+#dark .div_edit_user{
+  background: rgb(0, 0, 37);
+  color: white;
+}
+
+#dark .edit_user_button{
+  align-self: center;
+  background-color: white;
+  text-decoration-color: black;
+}
+/* 
 @media (min-width: 760px) and (min-height: 1000px) {
   .section_edit_user {
     font-size: 25px;
@@ -106,3 +106,4 @@
     width: 230px;
   }
 }
+ */

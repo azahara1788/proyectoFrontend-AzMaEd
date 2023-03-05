@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,700;1,400&display=swap");
 
 * {
   margin: 0;
@@ -18,12 +17,21 @@ body #root {
   );
   --colorSecundario: #efb810;
   --colorPrincipal: #062863;
-  --colorH2: #607ec9;
+  --colorPrincipalDark: rgb(0, 0, 37);
+  --colorH2: #062863c5;
+  --colorH2Dark: #103474c5;
   --background: linear-gradient(var(--colorPrincipal), white);
-  --backBody: linear-gradient(var(--colorPrincipal), white);
+  --backgroundDark: linear-gradient(
+    var(--colorPrincipalDark),
+    var(--colorPrincipalDark) 50%,
+    var(--colorH2Dark) 75%,
+    var(--colorH2Dark) 75%
+  );
+  --backBody: linear-gradient(white 30%, var(--colorH2) 100%);
   cursor: pointer;
   width: 100vw;
   min-height: 100vh;
+  background: var(--backBody);
 }
 
 ul {
@@ -44,14 +52,45 @@ h3 {
   grid-row: 2/3;
 }
 
+main ul.menu-principal {
+  width: 100vw;
+  height: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: small;
+  padding: 0.5rem;
+  border-bottom: #062863 1px solid;
+  background-color: #efb810;
+}
+main ul.menu-principal li {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+main ul.menu-principal :last-child {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--colorPrincipal);
+}
+
+main ul.menu-principal li a:link,
+main ul.menu-principal li a:visited {
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding-right: 1rem;
+  color: var(--colorPrincipal);
+}
+
 footer.azahara {
   grid-row: 3/4;
 }
-
-body #root main#dark {
-  background: var(--colorPrincipal);
-  color: white;
+body#root main#dark footer.azahara{
+  background: var(--backgroundDark);
 }
+
 
 .switch {
   display: flex;
@@ -63,8 +102,15 @@ body #root main#dark {
   height: 0.2rem;
 }
 
+body #root main#dark {
+  background: rgb(0, 0, 37);
+  color: white;
+}
+
 #dark .label {
   color: #ffffff;
 }
 
-/*<= marc  */
+main#dark h3 {
+  color: white;
+}

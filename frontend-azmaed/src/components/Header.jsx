@@ -1,17 +1,12 @@
 import { Auth } from "./Auth";
 import { Link } from "react-router-dom";
-//import Theme from "./Theme";
-//import "../App.css";
 import "./Header.css";
 import { useThemeContext } from "../context/ThemeContext";
-import { Menu } from "./MenuPincipal";
-//import Acordeon from "./Acordeon";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+
 
 export const Header = () => {
   const { theme } = useThemeContext();
-  const { user, token } = useContext(AuthContext);
+  
   return (
     <header>
       <section id={theme} className="header">
@@ -20,12 +15,11 @@ export const Header = () => {
         </Link>
         <h1> NotesForMe </h1>
 
-        {/*  <Theme /> */}
         <nav>
           <Auth />
         </nav>
       </section>
-      <section className="menu">{user && token ? <Menu /> : null}</section>
+     
     </header>
   );
 };
