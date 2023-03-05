@@ -1,8 +1,7 @@
 import "./components/Header.css";
 import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
+
 import { Route, Routes, useLocation } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { useThemeContext } from "./context/ThemeContext";
@@ -137,7 +136,6 @@ function App() {
         </ErrorBoundary>
       </main>
       <Footer />
-      <ToastContainer position="bottom-center" pauseOnHover theme="colored" />
     </>
   );
 }

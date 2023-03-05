@@ -7,7 +7,7 @@ export const Auth = () => {
 
   return user ? (
     <section className="user-name">
-      <Link to={`/user`}>✍️{user.name}</Link>{" "}
+      <Link to={`/user`}>✍️ {user.name}</Link>{" "}
     </section>
   ) : (
     <ul>

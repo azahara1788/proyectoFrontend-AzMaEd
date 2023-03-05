@@ -80,3 +80,22 @@ article button {
   height: 1.75rem;
   cursor: pointer;
 }
+
+@media (min-width: 1000px) {
+  article {
+    padding: 4rem 10rem;
+  }
+  article p.text {
+    padding-bottom: 4rem;
+  }
+
+  .noteimage img {
+    width: 20rem;
+    height: 20rem;
+  }
+  article button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+  }
+}

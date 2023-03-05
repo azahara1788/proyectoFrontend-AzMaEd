@@ -44,3 +44,18 @@ figure.azahara {
 figure.azahara img {
   width: 9rem;
 }
+
+@media (min-width: 1000px) {
+  section.homepage {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 2rem;
+  }
+
+  section.homepage h2 {
+    font-size: 3rem;
+  }
+  figure.azahara img {
+    width: 18rem;
+  }
+}

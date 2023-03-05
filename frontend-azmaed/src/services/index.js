@@ -132,6 +132,23 @@ export const getPublicNoteService = async (id) => {
 
   return json.data;
 };
+export const editPublicNoteService = async (id, { token, data }) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND}/notes/public/${id}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
 
 export const editNoteService = async (id, { token, data }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {

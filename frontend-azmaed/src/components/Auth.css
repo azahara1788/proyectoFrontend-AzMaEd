@@ -1,9 +1,7 @@
 ul {
   list-style: none;
 }
-section.user-name {
-  text-transform: capitalize;
-}
+
 .auth {
   display: flex;
   flex-direction: column;

@@ -39,3 +39,11 @@
 .modal-fg section form fieldset input#category {
   margin-left: 0;
 }
+@media (min-width: 1000px) {
+  .modal-fg {
+    font-size: 2rem;
+  }
+  .modal-fg input {
+    font-size: 2rem;
+  }
+}

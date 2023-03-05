@@ -1,6 +1,6 @@
 import "../App.css";
-import { useThemeContext } from "../context/ThemeContext";
 import "./Footer.css";
+import { useThemeContext } from "../context/ThemeContext";
 
 export const Footer = () => {
   const { theme } = useThemeContext();

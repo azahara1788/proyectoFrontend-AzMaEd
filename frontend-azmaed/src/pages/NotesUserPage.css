@@ -43,7 +43,6 @@ section.userpage section.categorias button.anadirCategoria {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-
   text-transform: capitalize;
 }
 
@@ -54,4 +53,20 @@ section div.modal button {
 
 #dark button {
   color: var(--colorSecundario);
+}
+@media (min-width: 1000px) {
+  main {
+    font-size: 1.2rem;
+  }
+  section.categorias {
+    flex-direction: column;
+  }
+  section div.modal button {
+    width: 20rem;
+    height: 3rem;
+  }
+  section.categorias button {
+    font-weight: 700;
+    font-size: 2rem;
+  }
 }

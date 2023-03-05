@@ -1,9 +1,8 @@
+import "./UserEditPage.css";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { editUserService } from "../services";
-import "./UserEditPage.css";
-import { toast } from "react-toastify";
 import { Loading } from "../components/Loading";
 
 export const UserEditPage = () => {
@@ -11,21 +10,30 @@ export const UserEditPage = () => {
   const [pass2, setPass2] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  const [error, setError] = useState("");
+  const [error] = useState("");
   const [loading, setLoading] = useState(false);
   const { user, token, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [pass, setPass] = useState("password");
 
   useEffect(() => {
     setName(user?.name || "");
     setSurname(user?.surname || "");
   }, [user]);
 
+  const verContraseña = () => {
+    if (pass === "password") {
+      setPass("text");
+    } else {
+      setPass("password");
+    }
+  };
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       if (pass1 !== pass2) {
-        throw new Error(toast.error("Las contraseñas no coinciden"));
+        throw new Error("Las contraseñas no coinciden");
       }
       const data = { name, surname };
       if (pass1) {
@@ -34,16 +42,14 @@ export const UserEditPage = () => {
       await editUserService({ id: user.id, data, token });
       setLoading(true);
       updateUser(data);
-      toast.success("¡Has editado correctamente tus datos!");
+
       navigate("/user");
-    } catch (error) {
-      setError(toast.error(error.message));
-    }
+    } catch (error) {}
   };
   return (
     <div className="div_edit_user">
       <section className="section_edit_user">
-        <h1 className="h1_edit_user">Editar datos de usuario</h1>
+        <h2 className="h1_edit_user">Editar datos de usuario</h2>
         <form id="form_edit_user" onSubmit={handleSubmit}>
           <fieldset className="form_caja_edit">
             <label htmlFor="name">Nombre</label>
@@ -69,13 +75,21 @@ export const UserEditPage = () => {
           <fieldset className="form_caja_edit">
             <label htmlFor="pass1">Contraseña</label>
             <input
-              type="password"
+              type={pass}
               id="pass1"
               name="pass1"
               placeholder="********"
               value={pass1}
               onChange={(e) => setPass1(e.target.value)}
             />
+            <span
+              onClick={() => {
+                verContraseña();
+              }}
+            >
+              {" "}
+              👀
+            </span>
           </fieldset>
           <fieldset className="form_caja_edit">
             <label htmlFor="pass2">Repita contraseña</label>

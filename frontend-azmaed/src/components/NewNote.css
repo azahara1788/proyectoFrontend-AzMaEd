@@ -1,34 +1,19 @@
-.section_note {
+div .div_newNote {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  font-weight: bold;
-  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
 }
 
 .div_newNote {
   display: flex;
   flex-direction: column;
-  background: var(--background);
   text-align: center;
-  height: 100vh;
   align-items: center;
   justify-content: center;
 }
-
-/* .div_newNote_scroll {
-  padding: 10px;
-  border: 1px solid rgb(129, 168, 227);
-  border-radius: 8px;
-  box-shadow: 0px 0px 8px gray;
-  max-width: 350px;
-  min-width: 300px;
-  max-height: 530px;
-  background: rgba(255, 255, 255, 0.2);
-  display: block;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-} */
 
 #form_note {
   align-self: center;
@@ -38,20 +23,10 @@
   padding: 1rem;
 }
 
-.h1_note {
-  text-align: center;
-}
-
-.form_caja_note {
-  display: flex;
-  border: none;
-  align-items: center;
-}
-
 .form_caja_note input {
   flex: 1;
   padding: 5px;
-  border: none;
+  border: 1px solid var(--colorPrincipal);
   border-radius: 5px;
   width: 200px;
   margin-top: 3px;
@@ -63,7 +38,8 @@
 
 textarea.form-control {
   min-height: calc(9em + (0.75rem + 2px));
-  border-radius: 8px;
+  border-radius: 5%;
+  border: 1px solid var(--colorPrincipal);
 }
 
 .form-control {
@@ -82,20 +58,24 @@ textarea.form-control {
 }
 
 .note_button {
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-  position: relative;
-  padding: 3px 5px;
-  border: none;
-  border-bottom: 1px solid;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0);
-  width: 100px;
-  margin-top: 5px;
+  padding: 5px 20px;
+  align-self: center;
+  color: var(--colorPrincipal);
+  font-weight: 700;
+  background: var(--background);
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5%;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 
-.note_button:before {
+#dark button.note_button {
+  background: var(--backgroundDark);
+}
+
+/* .note_button:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -125,9 +105,9 @@ textarea.form-control {
     font-size: 20px;
     min-width: 150px;
     margin-top: 10px;
-  }
+  } */
 
-  .form_caja_note input {
+/*   .form_caja_note input {
     padding: 6px;
     width: 360px;
     margin-left: 10px;
@@ -136,4 +116,4 @@ textarea.form-control {
     min-width: calc(15em + (8rem + 4px));
     border-radius: 8px;
   }
-}
+} */

@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background: linear-gradient(
     to right,
     var(--colorPrincipal),
@@ -12,6 +12,7 @@ header {
   );
 
   color: var(--colorSecundario);
+  font-size: 1.1rem;
 }
 
 header#dark {
@@ -22,7 +23,6 @@ header#dark {
     var(--colorPrincipal) 75%,
     var(--colorPrincipal) 75%
   );
-
   color: var(--colorSecundario);
 }
 
@@ -32,8 +32,6 @@ header section.header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  position: relative;
 }
 
 header section.header img {
@@ -49,7 +47,7 @@ header a:visited {
   text-decoration: none;
   color: var(--colorSecundario);
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
   cursor: pointer;
   padding-right: 1rem;
   cursor: pointer;
@@ -85,4 +83,22 @@ header section.menu ul.menu-principal li a:visited {
   cursor: pointer;
   padding-right: 1rem;
   color: var(--colorSecundario);
+}
+
+section.user-name a {
+  text-transform: capitalize;
+}
+
+@media (min-width: 1000px) {
+  header {
+    font-size: 1.2rem;
+  }
+  header section.header img {
+    height: 4rem;
+  }
+  header a:link,
+  header a:visited {
+    font-size: 1.5rem;
+    padding-right: 2rem;
+  }
 }

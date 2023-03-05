@@ -1,3 +1,4 @@
+import "./EditNotePage.css";
 import { useParams } from "react-router";
 import useNote from "../hooks/useNote";
 import { useState, useEffect, useContext } from "react";
@@ -39,7 +40,7 @@ export const EditNotePage = () => {
   return (
     <div className="div_edit_note">
       <section className="section_edit_note">
-        <h1 className="h1_edit_note">Cambiar esta nota</h1>
+        <h2 className="h1_edit_note">Cambiar esta nota</h2>
         <form id="form_edit_note" onSubmit={handleForm}>
           <fieldset className="form_caja_edit">
             <label htmlFor="text">Título</label>
@@ -54,7 +55,7 @@ export const EditNotePage = () => {
           </fieldset>
           <fieldset className="form_caja_edit_text">
             <label htmlFor="text">Texto</label>
-            <input
+            <textarea
               type="text"
               id="text"
               name="text"
