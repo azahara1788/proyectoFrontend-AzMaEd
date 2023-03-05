@@ -1,11 +1,10 @@
-.div_edit_user {
+div.div_edit_user {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, transparent, #48e);
   text-align: center;
-  height: 83vh;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 2rem;
 }
 
 #form_edit_user {
@@ -20,6 +19,7 @@
 
 .h1_edit_user {
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 .form_caja_edit {
@@ -31,28 +31,27 @@
 .form_caja_edit input {
   flex: 1;
   padding: 0.3rem;
-  border: none;
-  border-radius: 10%;
+  text-transform: capitalize;
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5%;
+  box-shadow: 1px 1px 3px var(--colorPrincipal);
   width: 10rem;
-} 
+}
 
 .form_caja_edit input:focus {
   outline: none;
 }
 
 .edit_user_button {
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-  position: relative;
-  padding: 0.3rem 0.3rem;
-  border: none;
-  border-bottom: 1px solid;
-  border-radius: 10%;
-  background: rgba(255, 255, 255, 0);
-  width: 5rem;
-  align-self: flex-end;
-  margin-top: 1rem;
-  cursor: pointer;
+  padding: 5px 20px;
+  align-self: center;
+  color: var(--colorPrincipal);
+  font-weight: 700;
+  background: var(--background);
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5%;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+  margin-top: 2rem;
 }
 .edit_user_button:before {
   content: "";
@@ -73,37 +72,27 @@
   left: 0;
 }
 
-
-#dark .div_edit_user{
+#dark .div_edit_user {
   background: rgb(0, 0, 37);
   color: white;
 }
 
-#dark .edit_user_button{
-  align-self: center;
-  background-color: white;
-  text-decoration-color: black;
+#dark .edit_user_button {
+  background: var(--backgroundDark);
 }
-/* 
-@media (min-width: 760px) and (min-height: 1000px) {
-  .section_edit_user {
-    font-size: 25px;
-    min-width: 475px;
-    max-width: 800px;
-    min-height: 450px;
-  }
-  .edit_user_button {
-    font-size: 20px;
-    min-width: 150px;
-    margin-top: 10px;
-  }
-  #form_edit_user fieldset {
-    padding: 6px;
-  }
 
-  .form_caja_edit input {
-    padding: 6px;
-    width: 230px;
+@media (min-width: 1000px) {
+  form #form_edit_user {
+    width: 30vw;
+    align-items: center;
+    font-size: 2rem;
+  }
+  #form_edit_user input {
+    width: 20vw;
+    height: 4vh;
+    font-size: 1.2rem;
+  }
+  #root button {
+    font-size: 1.1rem;
   }
 }
- */

@@ -1,7 +1,7 @@
+import "./components/Header.css";
 import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
+
 import { Route, Routes, useLocation } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { useThemeContext } from "./context/ThemeContext";
@@ -15,29 +15,27 @@ import { NotesUserPage } from "./pages/NotesUserPage";
 import { NotePage } from "./pages/NotePage";
 import { UserRoute } from "./components/UserRoute";
 import { CategoryPage } from "./pages/CategoryPage";
+import { EditCategoryPage } from "./pages/EditCategoryPage";
 import { NoteAllPage } from "./pages/NoteAllPage";
-import {NewNotePage} from "./pages/NewNotePage";
-import {EditNotePage} from "./pages/EditNotePage";
 import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
 import { Menu } from "./components/MenuPincipal";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-import "./components/Header.css";
-
+import { NewNotePage } from "./pages/NewNotePage";
+import { EditNotePage } from "./pages/EditNotePage";
 
 function App() {
   const { theme } = useThemeContext();
-  const { user, token } = useContext(AuthContext);
   const location = useLocation();
+  const { user, token } = useContext(AuthContext);
 
   return (
     <>
       <Header />
 
       <main id={theme}>
-     {user && token ? <Menu /> : null}
-      
+        {user && token ? <Menu /> : null}
         <ErrorBoundary
           key={location.pathname}
           fallback={<h2>Error en la section</h2>}
@@ -69,6 +67,14 @@ function App() {
               }
             />
             <Route
+              path="/notes/category/edit/:id"
+              element={
+                <PrivateRoute>
+                  <EditCategoryPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/note/:id"
               element={
                 <PrivateRoute>
@@ -84,7 +90,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-             
+
             <Route
               path="/note/edit/:id"
               element={
@@ -130,7 +136,6 @@ function App() {
         </ErrorBoundary>
       </main>
       <Footer />
-      <ToastContainer position="bottom-center" pauseOnHover theme="colored" />
     </>
   );
 }

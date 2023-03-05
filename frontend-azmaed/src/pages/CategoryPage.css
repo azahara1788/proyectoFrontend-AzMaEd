@@ -32,3 +32,32 @@ main .categoryPage {
 .linkAnadirNota a:hover {
   color: var(--colorPrincipal);
 }
+#dark section.linkAnadirNota {
+  border: 1px solid var(--colorPrincipal);
+  background: var(--backgroundDark);
+  text-transform: capitalize;
+
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+}
+
+#dark .linkAnadirNota a:link,
+#dark .linkAnadirNota a:visited {
+  color: var(--colorSecundario);
+}
+
+@media (min-width: 1000px) {
+  main {
+    font-size: 1.5rem;
+  }
+  main .categoryPage {
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .linkAnadirNota {
+    width: 15rem;
+    height: 15rem;
+  }
+}

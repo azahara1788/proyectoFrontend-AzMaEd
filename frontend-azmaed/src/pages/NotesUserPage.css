@@ -4,12 +4,16 @@ section.userpage h2 {
 }
 
 section .categorias {
-  padding: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
+  padding: 1rem;
+}
+section .categorias h3 {
+  justify-self: flex-start;
 }
 
 .categorias ul {
@@ -39,23 +43,30 @@ section.userpage section.categorias button.anadirCategoria {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-
   text-transform: capitalize;
 }
 
-/* section.userpage section.categorias button.anadirCategoria {
-  width: 9rem;
-  height: 3rem;
-  overflow: hidden;
-  color: var(--colorSecundario);
-  border: 1px solid var(--colorPrincipal);
+section div.modal button {
+  width: 8rem;
+  height: 4rem;
+}
 
-  font-size: small;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  background: var(--background);
-  text-transform: capitalize;
-  box-shadow: 1px 1px 3px var(--colorH2);
-} */
+#dark button {
+  color: var(--colorSecundario);
+}
+@media (min-width: 1000px) {
+  main {
+    font-size: 1.2rem;
+  }
+  section.categorias {
+    flex-direction: column;
+  }
+  section div.modal button {
+    width: 20rem;
+    height: 3rem;
+  }
+  section.categorias button {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}

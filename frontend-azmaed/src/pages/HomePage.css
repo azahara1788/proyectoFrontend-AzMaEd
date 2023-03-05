@@ -15,24 +15,23 @@ section.homepage h2 {
 p {
   padding: 0.5rem 1rem 0.01rem;
 }
-
-#light section.homepage p .user .name-user a:link,
-section.homepage p .user .name-user a:visited {
+#root main#light section.homepage p a:link,
+#root main#light section.homepage p a:visited {
   text-decoration: none;
   color: black;
 }
-section.homepage a:hover {
+#light section.homepage a:hover {
   text-decoration: none;
   color: var(--colorPrincipal);
   font-weight: bold;
 }
 
 #dark section.homepage p a:link,
-section.homepage p a:visited {
+#dark section.homepage p a:visited {
   text-decoration: none;
   color: white;
 }
-#dark section.homepage a:hover {
+#dark section.homepage p a:hover {
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -44,4 +43,19 @@ figure.azahara {
 }
 figure.azahara img {
   width: 9rem;
+}
+
+@media (min-width: 1000px) {
+  section.homepage {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 2rem;
+  }
+
+  section.homepage h2 {
+    font-size: 3rem;
+  }
+  figure.azahara img {
+    width: 18rem;
+  }
 }

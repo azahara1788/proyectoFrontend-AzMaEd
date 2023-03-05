@@ -1,7 +1,7 @@
+import "./RegisterPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import "./RegisterPage.css";
 import { registerUserService } from "../services";
 import { Loading } from "../components/Loading";
 
@@ -15,6 +15,15 @@ export const RegisterPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pass, setPass] = useState("password");
+
+  const verContraseña = () => {
+    if (pass === "password") {
+      setPass("text");
+    } else {
+      setPass("password");
+    }
+  };
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -39,7 +48,7 @@ export const RegisterPage = () => {
   return (
     <div className="div_register">
       <section className="section_register">
-        <h1 className="h1_register">Registro</h1>
+        <h2 className="h1_register">Registro</h2>
         <form id="form_register" onSubmit={handleForm}>
           <fieldset className="form_caja">
             <label htmlFor="name">Nombre</label>
@@ -77,13 +86,21 @@ export const RegisterPage = () => {
           <fieldset className="form_caja">
             <label htmlFor="pass1">Contraseña</label>
             <input
-              type="password"
+              type={pass}
               id="pass1"
               name="pass1"
               value={pass1}
               required
               onChange={(e) => setPass1(e.target.value)}
             />
+            <span
+              onClick={() => {
+                verContraseña();
+              }}
+            >
+              {" "}
+              👀
+            </span>
           </fieldset>
           <fieldset className="form_caja">
             <label htmlFor="pass2">Repita contraseña</label>

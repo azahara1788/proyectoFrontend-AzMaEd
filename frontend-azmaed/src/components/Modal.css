@@ -11,7 +11,39 @@
 }
 
 .modal-fg {
-  background-color: white;
-  color: black;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--backBody);
+  color: var(--colorPrincipal);
+  justify-content: center;
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 4%;
+}
+
+.modal-fg section#nueva-Categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-fg section h2 {
+  text-transform: none;
+}
+.modal-fg section form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-fg section form fieldset input#category {
+  margin-left: 0;
+}
+@media (min-width: 1000px) {
+  .modal-fg {
+    font-size: 2rem;
+  }
+  .modal-fg input {
+    font-size: 2rem;
+  }
 }

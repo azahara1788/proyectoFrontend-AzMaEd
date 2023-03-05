@@ -11,6 +11,15 @@ export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [pass, setPass] = useState("password");
+
+  const verContraseña = () => {
+    if (pass === "password") {
+      setPass("text");
+    } else {
+      setPass("password");
+    }
+  };
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -40,7 +49,7 @@ export const LoginPage = () => {
       <fieldset>
         <label htmlFor="pass">Password:</label>
         <input
-          type="password"
+          type={pass}
           name="pass"
           id="pass"
           value={password}
@@ -48,7 +57,14 @@ export const LoginPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </fieldset>
-
+      <span
+        onClick={() => {
+          verContraseña();
+        }}
+      >
+        {" "}
+        👀
+      </span>
       <button>Login</button>
       {error ? <p>{error}</p> : null}
     </form>

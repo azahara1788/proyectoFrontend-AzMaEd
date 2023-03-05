@@ -1,15 +1,14 @@
+import "./Header.css";
 import { Auth } from "./Auth";
 import { Link } from "react-router-dom";
-import "./Header.css";
 import { useThemeContext } from "../context/ThemeContext";
-
 
 export const Header = () => {
   const { theme } = useThemeContext();
-  
+
   return (
-    <header>
-      <section id={theme} className="header">
+    <header id={theme}>
+      <section className="header">
         <Link className="logo" to={"/"}>
           <img src="/images/logo3.png" alt="logo Notes for me" />
         </Link>
@@ -19,7 +18,6 @@ export const Header = () => {
           <Auth />
         </nav>
       </section>
-     
     </header>
   );
 };

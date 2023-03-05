@@ -1,58 +1,68 @@
-.div_edit_note {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to bottom, transparent, #48e);
-    text-align: center;
-    height: 34.6rem;
-    align-items: center;
-    justify-content: center;
+div.div_edit_note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 3rem;
+}
 
-  }
-  #form_edit_note {
-    align-self: center;
-   /*  margin-top: 6rem; */
-    margin-bottom: 1rem;
-  }
-  .h1_edit_note {
-    text-align: center;
-    
-  }
-  #form_edit_note fieldset {
-     margin-top: 1rem;
-  }
-  .form_caja_edit {
-    display: flex;
-    border: none;
-    align-items: center;
-  }
+#form_edit_note {
+  align-self: center;
+}
 
-  input#text{
-    height: 10rem;
-    border-radius: 10%;
+#form_edit_note fieldset {
+  margin-top: 1rem;
+}
 
+label {
+  padding-bottom: 1rem;
+  font-weight: 600;
+  color: var(--colorPrincipal);
+}
 
-  }
-  
-  .edit_note_button {
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
-    position: relative;
-    padding: 0.3rem 0.3rem;
-    border: none;
-    border-bottom: 1px solid;
-    border-radius: 10%;
-    background: rgba(255, 255, 255, 0);
-    width: 5rem;
-    align-self: flex-end;
-    margin-top: 1rem;
-    cursor: pointer;
-  }
-#dark .div_edit_note{
+.form_caja_edit {
+  display: flex;
+  align-items: center;
+}
+#form_edit_note input {
+  border: 1px solid grey;
+  border-radius: 4%;
+  box-shadow: 1px 1px 3px var(--colorH2);
+}
+
+textarea {
+  height: 10rem;
+  border-radius: 5%;
+  padding: 0.5rem;
+  box-shadow: 1px 1px 3px var(--colorPrincipal);
+}
+
+button.edit_note_button {
+  padding: 5px 20px;
+  align-self: center;
+  color: var(--colorPrincipal);
+  font-weight: 700;
+  background: var(--background);
+  border: 1px solid var(--colorPrincipal);
+  border-radius: 5%;
+  box-shadow: 1px 1px 3px var(--colorSecundario);
+  margin-top: 1rem;
+}
+
+#dark .div_edit_note {
   background: rgb(0, 0, 37);
   color: white;
 }
-#dark .edit_note_button{
-  align-self: center;
-  background-color: white;
-  text-decoration-color: black;
+
+#dark button.edit_note_button {
+  background: var(--backgroundDark);
+}
+#dark label {
+  color: var(--colorSecundario);
+}
+
+#dark textarea,
+#dark input {
+  box-shadow: 1px 1px 3px var(--colorSecundario);
 }

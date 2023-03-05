@@ -10,11 +10,7 @@ export const HomePage = () => {
     <section className="homepage">
       {user && token ? (
         <section className="user">
-          <p className="name-user">Hola {user.name},</p>
-          <p>
-            Accede a tus notas
-            <Link to={`/note`}> aquí</Link>
-          </p>
+          <p className="name-user">¡Hola {user.name}!</p>
         </section>
       ) : null}
       <section>

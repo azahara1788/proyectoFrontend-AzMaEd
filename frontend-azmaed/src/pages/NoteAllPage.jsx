@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import useNotes from "../hooks/useNotes";
 import { ListNotes } from "../components/ListNotes";
-import "./NotesUserPage.css";
 
 import "../App.css";
 
@@ -17,9 +16,8 @@ export const NoteAllPage = () => {
 
   return (
     <section className="noteAllPage">
-      <h2>Bienvenid@, {user.name}</h2>
       <section className="note">
-        <h3>Todas tus notas</h3>
+        <h3>Mis notas</h3>
         <ListNotes notes={notes} />
       </section>
     </section>

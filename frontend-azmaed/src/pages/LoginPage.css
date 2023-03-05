@@ -23,10 +23,30 @@ form.login button {
   background: var(--background);
   border: 1px solid var(--colorPrincipal);
   box-shadow: 1px 1px 3px var(--colorSecundario);
-
-  color: white;
+  font-weight: 700;
+  color: var(--colorPrincipal);
 }
 .login h2 {
   padding-left: 0;
   font-size: 2rem;
+}
+
+#dark form.login button {
+  background: var(--backgroundDark);
+}
+
+@media (min-width: 1000px) {
+  main {
+    margin: 4rem;
+  }
+  form.login {
+    border: 1px solid var(--colorPrincipal);
+    width: 30vw;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  form.login input {
+    width: 20vw;
+    height: 4vh;
+  }
 }

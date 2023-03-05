@@ -1,10 +1,24 @@
+section.note {
+  padding: 1rem;
+}
+
 ul {
   list-style: none;
+}
+
+ul.list-notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 1rem;
 }
 .list-notes a:link,
 .list-notes a:visited {
   text-decoration: none;
-  color: black;
+  color: (--colorPrincipal);
   font-weight: bold;
 }
 .list-notes a:hover {
@@ -15,6 +29,7 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem 1rem 1rem;
 }
@@ -54,4 +69,45 @@ ul {
   color: var(--colorPrincipal);
   font-weight: 600;
   font-size: large;
+}
+
+main#dark .list-categories li,
+main#dark .list-notes a:link,
+main#dark .list-notes a:visited {
+  border: 1px solid var(--colorPrincipal);
+
+  background: var(--backgroundDark);
+
+  box-shadow: 1px 1px 3px var(--colorH2);
+}
+
+main#dark .list-categories .icons button {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--colorSecundario);
+  font-weight: 600;
+  font-size: large;
+}
+
+@media (min-width: 1000px) {
+  main {
+    font-size: 1.5rem;
+  }
+  ul.list-categories {
+    padding: 4rem;
+  }
+  #root main div.modal button {
+    font-size: 1.5rem;
+  }
+  .list-categories li,
+  .list-notes a:link,
+  .list-notes a:visited {
+    width: 15rem;
+    height: 15rem;
+  }
+  #root .list-categories .icons button {
+    font-weight: 900;
+    font-size: 2rem;
+  }
 }

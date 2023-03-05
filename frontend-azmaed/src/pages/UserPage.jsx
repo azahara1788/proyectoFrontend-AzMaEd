@@ -10,10 +10,10 @@ export const UserPage = () => {
     user !== null && (
       <section className="section_userPage">
         <div className="div_userPage">
-          <h1 className="h1_userPage">
+          <h2 className="h1_userPage">
             Usuario: {`${user.name} ${user.surname}`}{" "}
-          </h1>
-          <h2 className="h2_userPage">Correo: {user.email}</h2>
+          </h2>
+          <h3 className="h2_userPage">Correo: {user.email}</h3>
           <section className="section2_userPage">
             <p className="p_userPage">User id: {user.id}</p>
             <p className="p2_userPage">

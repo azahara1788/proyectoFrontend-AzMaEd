@@ -6,9 +6,8 @@ export const Auth = () => {
   const { user } = useContext(AuthContext);
 
   return user ? (
-    <section>
-      <Link to={`/users/login`}>✍️{user.name}</Link>{" "}
-     
+    <section className="user-name">
+      <Link to={`/user`}>✍️ {user.name}</Link>{" "}
     </section>
   ) : (
     <ul>
@@ -16,7 +15,7 @@ export const Auth = () => {
         <Link to={"/register"}>Registrarse</Link>
       </li>
       <li>
-        <Link to={"/login"}>Iniciar Sesión</Link>
+        <Link to={"/login"}>Iniciar sesión</Link>
       </li>
     </ul>
   );

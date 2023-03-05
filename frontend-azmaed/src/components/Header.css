@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background: linear-gradient(
     to right,
     var(--colorPrincipal),
@@ -12,6 +12,18 @@ header {
   );
 
   color: var(--colorSecundario);
+  font-size: 1.1rem;
+}
+
+header#dark {
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 37),
+    rgb(0, 0, 37) 50%,
+    var(--colorPrincipal) 75%,
+    var(--colorPrincipal) 75%
+  );
+  color: var(--colorSecundario);
 }
 
 header section.header {
@@ -20,9 +32,6 @@ header section.header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1rem;
-  gap: 1rem;
-  position: relative;
 }
 
 header section.header img {
@@ -38,35 +47,12 @@ header a:visited {
   text-decoration: none;
   color: var(--colorSecundario);
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1rem;
   cursor: pointer;
   padding-right: 1rem;
   cursor: pointer;
 }
 
-/* header a:link .dark,
-header a:visited .dark {
-  color: white;
-  font-size: 0.7rem;
-  font-weight: bold;
-  cursor: pointer;
-} */
-header nav {
-  padding-right: 0.5rem;
-}
-
-/* nav .especial {
-
-  position: sticky;
-  top: 0;
-  z-index: 1;
-} */
-/* header button.menu {
-  color: var(--colorSecundario);
-  cursor: pointer;
-  position: sticky;
-  top: 1.5rem;
-} */
 header ul.menu-principal {
   width: 100vw;
   height: 1rem;
@@ -97,4 +83,22 @@ header section.menu ul.menu-principal li a:visited {
   cursor: pointer;
   padding-right: 1rem;
   color: var(--colorSecundario);
+}
+
+section.user-name a {
+  text-transform: capitalize;
+}
+
+@media (min-width: 1000px) {
+  header {
+    font-size: 1.2rem;
+  }
+  header section.header img {
+    height: 4rem;
+  }
+  header a:link,
+  header a:visited {
+    font-size: 1.5rem;
+    padding-right: 2rem;
+  }
 }

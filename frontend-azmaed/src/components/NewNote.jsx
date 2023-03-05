@@ -1,20 +1,19 @@
-
+import "./NewNote.css";
 import { useContext, useState } from "react";
 import { addImageService, saveNoteService } from "../services";
 import { AuthContext } from "../context/AuthContext";
-import "./NewNote.css";
 import { Loading } from "./Loading";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
 export const NewNote = (id) => {
-  const [error] = useState("");
   const [saving, setSaving] = useState(false);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -22,7 +21,9 @@ export const NewNote = (id) => {
       setSaving(true);
       setLoading(true);
       const data = new FormData(e.target);
+
       const note = await saveNoteService({ data, token });
+
       if (image) {
         const imageData = new FormData();
         imageData.set("image", image);
@@ -44,13 +45,12 @@ export const NewNote = (id) => {
     }
   };
 
-
   return (
     <>
       <div className="div_newNote">
         <div className="div_newNote_scroll">
           <section className="section_note">
-            <h1 className="h1_note">Añade una nueva nota</h1>
+            <h2 className="h1_note">Añade una nueva nota</h2>
             <form onSubmit={handleForm} id="form_note">
               <fieldset className="form_caja_note">
                 <label htmlFor="text">Título</label>
@@ -67,25 +67,20 @@ export const NewNote = (id) => {
               </fieldset>
 
               <fieldset className="form_caja_note">
-                <legend>Categoría</legend>
-                <label htmlFor="text">
-                  <select
+                <label htmlFor="text" className="categoria">
+                  Categoría{" "}
+                  <input
+                    type="number"
                     id="category_id"
                     name="category_id"
-                    required
-                  /*  readOnly */
-                  >
-                    <option value="">Selecciona una categoría</option>
-                    <option value={1}>Viajes</option>
-                    <option value={2}>Compras</option>
-                    <option value={3}>Evento</option>
-                    <option value={4}>Recordatorios</option>
-                  </select>
+                    value={id.category_id}
+                    readOnly
+                  />
                 </label>
               </fieldset>
 
-             <fieldset className="form_caja_note">
-                <label htmlFor="text">Lugar (opcional)</label>
+              <fieldset className="form_caja_note">
+                <label htmlFor="text">Lugar </label>
                 <input type="text" id="place" name="place" />
               </fieldset>
 
@@ -109,14 +104,13 @@ export const NewNote = (id) => {
                 ) : null}
               </fieldset>
               <button className="note_button">Guardar Nota</button>
-              {saving ? <p>Saving Note</p> : null} 
+              {saving ? <p>Saving Note</p> : null}
 
               {loading && <Loading />}
             </form>
           </section>
         </div>
       </div>
-      
     </>
   );
 };
