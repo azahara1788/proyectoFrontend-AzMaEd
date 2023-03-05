@@ -24,12 +24,6 @@ header section.header {
   gap: 1rem;
   position: relative;
 }
-header section.header nav {
-  position: absolute;
-
-  top: 1rem;
-  left: 4rem;
-}
 
 header section.header img {
   height: 3rem;

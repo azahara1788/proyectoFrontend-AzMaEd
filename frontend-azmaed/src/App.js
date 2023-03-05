@@ -20,11 +20,15 @@ import {NewNotePage} from "./pages/NewNotePage";
 import {EditNotePage} from "./pages/EditNotePage";
 import { Footer } from "./components/Footer";
 import { UserEditPage } from "./pages/UserEditPage";
+import { Menu } from "./components/MenuPincipal";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
+import "./components/Header.css";
 
 
 function App() {
   const { theme } = useThemeContext();
-
+  const { user, token } = useContext(AuthContext);
   const location = useLocation();
 
   return (
@@ -32,6 +36,8 @@ function App() {
       <Header />
 
       <main id={theme}>
+     {user && token ? <Menu /> : null}
+      
         <ErrorBoundary
           key={location.pathname}
           fallback={<h2>Error en la section</h2>}

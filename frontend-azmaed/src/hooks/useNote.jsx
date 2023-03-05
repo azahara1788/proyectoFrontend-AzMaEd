@@ -16,14 +16,14 @@ const useNote = (id) => {
 
         setNote(data);
       } catch (error) {
-        setError("Esta no nota no existe", error.message);
+        setError("Esta nota no existe", error.message);
       } finally {
         setLoadingNote(false);
       }
     };
 
     getNote();
-  }, [token, id]);
+  }, [id,token]);
 
   return { note, setNote, error, setError, loadingNote };
 };

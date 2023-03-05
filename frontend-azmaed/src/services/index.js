@@ -84,7 +84,7 @@ export const getAllNotesService = async ({ token }) => {
   return json.data;
 };
 
-export const editUserService = async ({ id, token, data }) => {
+export const editUserService = async ({id, token, data }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
@@ -122,7 +122,7 @@ export const getPublicNoteService = async (id) => {
   );
 
   const json = await response.json();
-
+console.log (json)
   if (!response.ok) {
     throw new Error(json.message);
   }
@@ -130,17 +130,31 @@ export const getPublicNoteService = async (id) => {
   return json.data;
 };
 
-export const editNoteService = async ({ id, token, data }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
+export const editPublicNoteService = async ( id,{token, data }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/public/${id}`, {
     method: "PUT",
-    body: data,
+    body: JSON.stringify(data),
     headers: {
+      "Content-Type": "application/json",
       Authorization: token,
     },
   });
-
   const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
 
+export const editNoteService = async ( id,{token, data }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND}/notes/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
   if (!response.ok) {
     throw new Error(json.message);
   }

@@ -13,30 +13,43 @@ article p {
   width: 15rem;
   height: 15rem;
   object-fit: cover;
-  box-shadow: 2px 2px 2px 2px var(--colorSecundario);
+  background-color: rgb(255, 252, 252);
+  box-shadow: 2px 2px 2px 2px var(--colorPrincipal);
   padding: 1rem;
 }
 article section {
-  padding: 1rem;
+  padding-top: 1rem;
 }
 
-article.onenote button .button-nota {
-  background: var(--colorPrincipal);
-  padding: 0.2rem;
-  border: brown;
-  box-shadow: 1px 1px 1px 1px var(--colorSecundario);
-  border-radius: 5%;
-  color: white;
+article section.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+article button {
+  border: none;
+  background: transparent;
+  color: var(--colorPrincipal);
+  font-weight: 700;
+  font-size: large;
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  text-shadow: 1px 1px 3px var(--colorH2);
+  cursor: pointer;
 }
 
-.publiNote{
-  background: var(--colorPrincipal);
-  padding: 0.2rem;
-  border: brown;
-  box-shadow: 1px 1px 1px 1px var(--colorSecundario);
+
+
+#dark article button {
   border-radius: 5%;
-  color: white;
-  margin-top: 20rem;
-  height: 50rem;
-  width: 50rem;
+  color: var(--colorSecundario);
+  font-weight: 700;
+  font-size: large;
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  cursor: pointer;
 }

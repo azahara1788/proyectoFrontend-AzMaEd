@@ -14,3 +14,9 @@ footer {
     #eee 75%
   );
 }
+
+
+#dark footer{
+  text-decoration: none;
+  color: white;
+}

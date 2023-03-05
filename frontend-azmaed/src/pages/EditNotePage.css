@@ -1,0 +1,58 @@
+.div_edit_note {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, transparent, #48e);
+    text-align: center;
+    height: 34.6rem;
+    align-items: center;
+    justify-content: center;
+
+  }
+  #form_edit_note {
+    align-self: center;
+   /*  margin-top: 6rem; */
+    margin-bottom: 1rem;
+  }
+  .h1_edit_note {
+    text-align: center;
+    
+  }
+  #form_edit_note fieldset {
+     margin-top: 1rem;
+  }
+  .form_caja_edit {
+    display: flex;
+    border: none;
+    align-items: center;
+  }
+
+  input#text{
+    height: 10rem;
+    border-radius: 10%;
+
+
+  }
+  
+  .edit_note_button {
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+    position: relative;
+    padding: 0.3rem 0.3rem;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 10%;
+    background: rgba(255, 255, 255, 0);
+    width: 5rem;
+    align-self: flex-end;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+#dark .div_edit_note{
+  background: rgb(0, 0, 37);
+  color: white;
+}
+#dark .edit_note_button{
+  align-self: center;
+  background-color: white;
+  text-decoration-color: black;
+}
