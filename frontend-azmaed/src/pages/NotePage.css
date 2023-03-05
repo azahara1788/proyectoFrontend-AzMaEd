@@ -5,7 +5,7 @@ article {
   align-items: center;
   padding: 2rem;
 }
-article p {
+article p.text {
   padding-bottom: 1rem;
 }
 
@@ -40,9 +40,36 @@ article button {
   text-shadow: 1px 1px 3px var(--colorH2);
   cursor: pointer;
 }
+#dark article button {
+  border-radius: 5%;
+  color: var(--colorSecundario);
+  font-weight: 700;
+  font-size: large;
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  cursor: pointer;
+}
 
-
-
+article section.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+article button {
+  border: none;
+  background: transparent;
+  color: var(--colorPrincipal);
+  font-weight: 700;
+  font-size: large;
+  align-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  text-shadow: 1px 1px 3px var(--colorH2);
+  cursor: pointer;
+}
 #dark article button {
   border-radius: 5%;
   color: var(--colorSecundario);

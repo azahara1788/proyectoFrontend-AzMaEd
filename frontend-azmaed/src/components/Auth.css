@@ -1,17 +1,9 @@
 ul {
   list-style: none;
 }
-
-a:link,
-a:visited {
-  text-decoration: none;
-  color: black;
+section.user-name {
+  text-transform: capitalize;
 }
-
-a:hover {
-  color: #be3455;
-}
-
 .auth {
   display: flex;
   flex-direction: column;

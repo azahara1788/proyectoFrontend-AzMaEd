@@ -63,12 +63,13 @@ export const NotePage = () => {
       </section>
 
       <section>
+        <p>Categoría: {note.category}</p>
         {note.place ? <p>Lugar: {note.place}</p> : null}
-        {note.private ? <p>Pública</p> : <p>Privada</p>}
+        {note.private ? <p>Nota pública</p> : <p>Nota privada</p>}
       </section>
 
       {user && note ? (
-        <>
+        <section className="button">
           <button
             name="edit"
             onClick={() => {
@@ -78,6 +79,7 @@ export const NotePage = () => {
             🖋
           </button>
           <button
+            name="delete"
             onClick={() => {
               if (window.confirm("¿Quieres borrar la nota?")) deleteNote(id);
             }}
@@ -101,7 +103,7 @@ export const NotePage = () => {
           </button>
 
           {error ? <p>{error}</p> : null}
-        </>
+        </section>
       ) : null}
     </article>
   ) : (

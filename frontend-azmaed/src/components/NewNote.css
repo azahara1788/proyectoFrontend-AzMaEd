@@ -9,9 +9,9 @@
 .div_newNote {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, transparent, #48e);
+  background: var(--background);
   text-align: center;
-  height: 83vh;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 }
@@ -35,7 +35,7 @@
 }
 
 #form_note fieldset {
-  padding: 7px;
+  padding: 1rem;
 }
 
 .h1_note {

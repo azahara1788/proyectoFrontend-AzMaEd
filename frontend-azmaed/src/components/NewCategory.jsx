@@ -1,17 +1,15 @@
+import "./NewCategory.css";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router";
 import { saveCategoryService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { Loading } from "./Loading";
 
-import "./NewCategory.css";
-import useCategories from "../hooks/useCategories";
-
-export const NewCategory = () => {
-  const { updateCat, loading } = useCategories();
+export const NewCategory = ({ categories, setCategories, loading }) => {
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
   const { token } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   if (loading) {
     return <Loading />;
   }
@@ -23,14 +21,13 @@ export const NewCategory = () => {
       setSaving(true);
       const data = new FormData(e.target);
       const cat = await saveCategoryService({ data, token });
-      console.log(cat);
-      updateCat(cat);
-
+      setCategories([...categories, cat]);
       e.target.reset();
     } catch (error) {
       setError(error.message);
     } finally {
       setSaving(false);
+      navigate(`/note`);
     }
   };
   return (

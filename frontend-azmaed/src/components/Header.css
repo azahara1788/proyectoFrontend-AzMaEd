@@ -14,6 +14,18 @@ header {
   color: var(--colorSecundario);
 }
 
+header#dark {
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 37),
+    rgb(0, 0, 37) 50%,
+    var(--colorPrincipal) 75%,
+    var(--colorPrincipal) 75%
+  );
+
+  color: var(--colorSecundario);
+}
+
 header section.header {
   width: 100vw;
   display: flex;
@@ -43,26 +55,6 @@ header a:visited {
   cursor: pointer;
 }
 
-/* header a:link .dark,
-header a:visited .dark {
-  color: white;
-  font-size: 0.7rem;
-  font-weight: bold;
-  cursor: pointer;
-} */
-
-/* nav .especial {
-
-  position: sticky;
-  top: 0;
-  z-index: 1;
-} */
-/* header button.menu {
-  color: var(--colorSecundario);
-  cursor: pointer;
-  position: sticky;
-  top: 1.5rem;
-} */
 header ul.menu-principal {
   width: 100vw;
   height: 1rem;

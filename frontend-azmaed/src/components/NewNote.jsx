@@ -1,8 +1,7 @@
-
+import "./NewNote.css";
 import { useContext, useState } from "react";
 import { addImageService, saveNoteService } from "../services";
 import { AuthContext } from "../context/AuthContext";
-import "./NewNote.css";
 import { Loading } from "./Loading";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
@@ -15,6 +14,7 @@ export const NewNote = (id) => {
 
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -22,7 +22,9 @@ export const NewNote = (id) => {
       setSaving(true);
       setLoading(true);
       const data = new FormData(e.target);
+
       const note = await saveNoteService({ data, token });
+
       if (image) {
         const imageData = new FormData();
         imageData.set("image", image);
@@ -43,7 +45,6 @@ export const NewNote = (id) => {
       setSaving(false);
     }
   };
-
 
   return (
     <>
@@ -69,23 +70,18 @@ export const NewNote = (id) => {
               <fieldset className="form_caja_note">
                 <legend>Categoría</legend>
                 <label htmlFor="text">
-                  <select
+                  <input
+                    type="number"
                     id="category_id"
                     name="category_id"
-                    required
-                  /*  readOnly */
-                  >
-                    <option value="">Selecciona una categoría</option>
-                    <option value={1}>Viajes</option>
-                    <option value={2}>Compras</option>
-                    <option value={3}>Evento</option>
-                    <option value={4}>Recordatorios</option>
-                  </select>
+                    value={id.category_id}
+                    readOnly
+                  />
                 </label>
               </fieldset>
 
-             <fieldset className="form_caja_note">
-                <label htmlFor="text">Lugar (opcional)</label>
+              <fieldset className="form_caja_note">
+                <label htmlFor="text">Lugar </label>
                 <input type="text" id="place" name="place" />
               </fieldset>
 
@@ -109,14 +105,74 @@ export const NewNote = (id) => {
                 ) : null}
               </fieldset>
               <button className="note_button">Guardar Nota</button>
-              {saving ? <p>Saving Note</p> : null} 
+              {saving ? <p>Saving Note</p> : null}
 
               {loading && <Loading />}
             </form>
           </section>
         </div>
       </div>
-      
+      <section className="section_note">
+        <h1 className="h1_note">Añade una nueva nota</h1>
+        <form onSubmit={handleForm} id="form_note">
+          <fieldset className="form_caja_note">
+            <label htmlFor="text">Título</label>
+            <input type="text" id="title" name="title" required />
+          </fieldset>
+
+          <fieldset className="form_caja_note">
+            <label htmlFor="text">Nota</label>
+            <textarea
+              name="text"
+              id="text"
+              className="form-control"
+              placeholder="contenido de la nota"
+            ></textarea>
+          </fieldset>
+
+          <fieldset className="form_caja_note">
+            <legend>Categoría</legend>
+            <label htmlFor="text">
+              <input
+                type="number"
+                id="category_id"
+                name="category_id"
+                value={id.category_id}
+                readOnly
+              />
+            </label>
+          </fieldset>
+
+          <fieldset className="form_caja_note">
+            <label htmlFor="text">Lugar (opcional)</label>
+            <input type="text" id="place" name="place" />
+          </fieldset>
+
+          <fieldset className="form_caja_note">
+            <label htmlFor="image">Imagen (opcional)</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            {image ? (
+              <figure>
+                <img
+                  src={URL.createObjectURL(image)}
+                  style={{ width: "100px" }}
+                  alt="Preview"
+                />
+              </figure>
+            ) : null}
+          </fieldset>
+
+          <button className="note_button">Guardar Nota</button>
+          {saving ? <p>Saving Note</p> : null}
+          {error ? <p>{error}</p> : null}
+        </form>
+      </section>
     </>
   );
 };

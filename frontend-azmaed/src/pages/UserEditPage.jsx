@@ -72,7 +72,7 @@ export const UserEditPage = () => {
               type="password"
               id="pass1"
               name="pass1"
-              placeholder="****"
+              placeholder="********"
               value={pass1}
               onChange={(e) => setPass1(e.target.value)}
             />
@@ -83,7 +83,7 @@ export const UserEditPage = () => {
               type="password"
               id="pass2"
               name="pass2"
-              placeholder="****"
+              placeholder="********"
               value={pass2}
               onChange={(e) => setPass2(e.target.value)}
             />

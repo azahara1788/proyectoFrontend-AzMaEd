@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import useCategories from "../hooks/useCategories";
 
 import "./List.css";
 
-export const ListCategory = ({ categories }) => {
+export const ListCategory = ({ categories, deleteCategory, error }) => {
   const navigate = useNavigate();
-  const { deleteCategory } = useCategories();
 
   return categories.length ? (
     <ul className="list-categories">
@@ -37,6 +35,7 @@ export const ListCategory = ({ categories }) => {
                 🗑
               </button>
             </section>
+            {error ? <p>error</p> : null}
           </li>
         );
       })}

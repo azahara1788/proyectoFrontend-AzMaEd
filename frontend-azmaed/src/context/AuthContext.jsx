@@ -11,7 +11,6 @@ export const AuthContextProviderComponent = ({ children }) => {
     const getUserData = async () => {
       try {
         const data = await getMyDataService({ token });
-
         setUser(data);
       } catch (error) {
         setToken(null);

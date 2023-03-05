@@ -7,9 +7,13 @@ section .categorias {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
+}
+section .categorias h3 {
+  justify-self: flex-start;
 }
 
 .categorias ul {
@@ -48,19 +52,6 @@ section div.modal button {
   height: 4rem;
 }
 
-/* section.userpage section.categorias button.anadirCategoria {
-  width: 9rem;
-  height: 3rem;
-  overflow: hidden;
+#dark button {
   color: var(--colorSecundario);
-  border: 1px solid var(--colorPrincipal);
-
-  font-size: small;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  background: var(--background);
-  text-transform: capitalize;
-  box-shadow: 1px 1px 3px var(--colorH2);
-} */
+}

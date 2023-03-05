@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import useNotes from "../hooks/useNotes";
 import { ListNotes } from "../components/ListNotes";
-import "./NotesUserPage.css";
 
 import "../App.css";
 

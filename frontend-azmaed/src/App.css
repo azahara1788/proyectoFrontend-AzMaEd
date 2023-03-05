@@ -118,11 +118,6 @@ footer.azahara {
   grid-row: 3/4;
 }
 
-body #root main#dark {
-  background: var(--colorPrincipal);
-  color: white;
-}
-
 .switch {
   display: flex;
   justify-content: center;
